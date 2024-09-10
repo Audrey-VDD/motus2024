@@ -1,3 +1,47 @@
+*{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 body{
-    background-color: blue;
+    background-color: rgb(198, 198, 240);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#clavier{
+    display: flex;
+}
+#myTable, td, tr{
+    border: 1px solid rgb(205, 100, 100);
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+table{
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+#myTable{
+    width: 50vw;
+    height: 60vh;
+    margin-bottom: 5vh;
+}
+.button{
+    margin: 5px;
+}
+#clavier{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+#clavier>div{
+    display: flex;
+}
+button{
+    width: 5vw;
+    height: 7vh;
+    border-radius: 15px;
+    font-size: 0.9rem;
 }
