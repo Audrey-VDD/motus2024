@@ -1,60 +1,60 @@
-document.addEventListener('DOMContentLoaded',()=>{
+document.addEventListener('DOMContentLoaded', () => {
     const tableauMots = ["cache", "codes", "liens", "octets", "cookie", "emuler", "binaire", "curseur", "domaine", "logiciel", "protocol", "terminal"];
-    const generateurMot = Math.floor(Math.random()* tableauMots.length);
-    let motAffiche = tableauMots[generateurMot].split('');
+    const generateurMot = Math.floor(Math.random() * tableauMots.length);
+    let motAffiche = tableauMots[generateurMot];
     const nombreTentatives = 6;
     const supprimer = document.getElementById("btnSuppr");
     const valider = document.getElementById("btnValider");
 
-    console.log(tableauMots[generateurMot]);
+    let motSecret = motAffiche.split('');
+
     console.log(motAffiche);
-    console.log(motAffiche[1]);
-    
-
-    let table = document.getElementById("myTable");
-    // insert une ligne
-    let nouvelleLigne = table.insertRow(0);
-
-    // insert une cellule
-    let nouvelleCellule = nouvelleLigne.insertCell(0);
-    // let mot = document.createTextNode(tableauMots[generateurMot][0]);
-    // nouvelleCellule.appendChild(mot);
-
-
-
-
-    for(let y=0; y<motAffiche.length;y++){
-        let nouvelleCellule = nouvelleLigne.insertCell();
-        y = document.createTextNode(motAffiche[y]);
-        nouvelleCellule.appendChild(y);
-    }
-
-
-
 
     // Trouver la fonction pour afficher le mot sur le html
-    for(let i=1; i<tableauMots[generateurMot].length;i++){
-        motAffiche.innerText += "_";
-        console.log(motAffiche);        
-    }
+    // for (let j = 1; j < motAffiche.length; j++) {
+    //     motSecret.textContent = "_";
+    //     console.log(motSecret);
+    // };
 
 
-    const letter = document.getElementsByClassName("letter");
+    const tableau = document.getElementById("myTable");
+    // insert une ligne
+
+    for (let i = 0; i < nombreTentatives; i++) {
+        const ligne = document.createElement('tr');
+
+        motSecret.forEach((motSecret) => {
+            const cellule = document.createElement('td');
+
+            cellule.textContent = motSecret;
+            ligne.appendChild(cellule);
+            console.log(motSecret);
 
 
-    // Fonction pour les touches clavier
-    for(let i=0;i<letter.length;i++){
-        letter[i].addEventListener("click",()=>{
-            console.log(letter[i].innerText);
-        })
-    }
 
-    document.addEventListener('keydown', (e)=> {
-        console.log(e.key);
-        // afficher dans le tableau
-        
-    });
+        });
+        tableau.appendChild(ligne);
 
 
-    
-})
+
+
+
+        const letter = document.getElementsByClassName("letter");
+
+
+        // Fonction pour les touches clavier
+        for (let y = 0; y < letter.length; y++) {
+            letter[y].addEventListener("click", () => {
+                console.log(letter[y].innerText);
+            })
+        };
+
+        document.addEventListener('keydown', (e) => {
+            console.log(e.key);
+            // afficher dans le tableau
+
+        });
+
+    };
+
+});
