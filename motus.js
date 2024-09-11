@@ -15,43 +15,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
     const tableau = document.getElementById("myTable");
 
-    for (i = 1; i < nombreTentatives; i++) {
+
+    for (u = 0; u < nombreTentatives; u++) {
         const ligne = document.createElement('tr');
-        motSecret.forEach(() => {
+        motAfficheMasque.split("").forEach((caractere)=>{
+            
+        })
+
+
+
+
+        motSecret.forEach((motSecret) => {
+
+            console.log(motSecret)
+
             // créer une td dans le tr
             const cellule = document.createElement('td');
-            cellule.textContent = "_";
+            cellule.textContent = motSecret;
 
-
-        ligne.appendChild(cellule);
-
-
+            ligne.appendChild(cellule);
 
 
         });
+
+
         tableau.appendChild(ligne);
-    }
-
-
-
-    // insert une ligne
-    // const ligne = document.createElement('tr');
-    // motSecret.forEach((lettre, index)=>{
-    //     // créer une td dans le tr
-    //     const cellule = document.createElement('td');
-    //     if(index === 0){
-    //         cellule.textContent = "_";
-    //     }
-    //     ligne.appendChild(cellule);
-    // });
-    // tableau.appendChild(ligne);
-
-
-
-
-
+    };
 
 
 
@@ -60,9 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const letter = document.getElementsByClassName("letter");
     // Fonction pour les touches clavier
-    for (let i = 0; i < letter.length; i++) {
-        letter[i].addEventListener("click", () => {
-            console.log(letter[i].innerText);
+    for (let y = 0; y < letter.length; y++) {
+        letter[y].addEventListener("click", () => {
+            console.log(letter[y].innerText);
         })
     }
 
