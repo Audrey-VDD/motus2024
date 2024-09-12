@@ -53,11 +53,26 @@ document.addEventListener("DOMContentLoaded", () => {
         const cellules = ligne.getElementsByTagName("td");
 
 
+        // pour entrer dans chaque cellule
+
         if (positionLigne < cellules.length) {
-            cellules[positionLigne].textContent = lettre; // Insère la lettre dans la cellule courante
-            positionLigne++; // Avance à la prochaine cellule
+            cellules[positionLigne].textContent = lettre;
+
         }
 
+        if (lettre === motAffiche[positionLigne]) {
+            cellules[positionLigne].classList.add("bien-place");
+        }
+        positionLigne++;
+
+
+
+        // pour passer a une autre ligne quand il atteind le nombre de case
+        if (positionLigne === cellules.length) {
+            choixJoueur++;
+            positionLigne = 1;
+        }
+        // 
     }
 
 
@@ -74,6 +89,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     document.addEventListener("keydown", (e) => {
         console.log(e.key);
+        const keybord = e.key;
+        saisi(keybord)
 
 
 
