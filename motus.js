@@ -13,12 +13,19 @@ document.addEventListener("DOMContentLoaded", () => {
         "protocol",
         "terminal",
     ];
+
+
+
+
+
+
+
     const generateurMot = Math.floor(Math.random() * tableauMots.length);
     let motAffiche = tableauMots[generateurMot];
 
     let motAfficheMasque = motAffiche
         .split("")
-        .map((lettre, index) => (index === 0 ? lettre : "."))
+        .map((lettre, index) => (index === 0 ? lettre : "-"))
         .join("");
     // créer variable mot splité
 
@@ -38,30 +45,20 @@ document.addEventListener("DOMContentLoaded", () => {
         tableau.appendChild(ligne);
     };
 
-    // Suivi de la position dans la ligne
-    let tentativeActuelle = 0;
-    let positionDansLigne = 1; // Commence après la première lettre déjà affichée
+    let choixJoueur = 0;
+    let positionLigne = 1;
 
-    // Fonction pour mettre à jour la cellule avec la lettre saisie
-    function saisirLettre(lettre) {
-        const ligne = tableau.getElementsByTagName("tr")[tentativeActuelle]; // Ligne actuelle
-        const cellule = ligne.getElementsByTagName("td"); // Récupérer toutes les cellules
-        if (positionDansLigne < cellule.length) {
-            cellule[positionDansLigne].textContent = lettre; // Remplacer le point par la lettre
-            positionDansLigne++;
+    function saisi(lettre) {
+        const ligne = tableau.getElementsByTagName('tr')[choixJoueur];
+        const cellules = ligne.getElementsByTagName("td");
+
+
+        if (positionLigne < cellules.length) {
+            cellules[positionLigne].textContent = lettre; // Insère la lettre dans la cellule courante
+            positionLigne++; // Avance à la prochaine cellule
         }
-        // Si la ligne est complète, passer à la tentative suivante
-        if (positionDansLigne === cellule.length) {
-            tentativeActuelle++;
-            positionDansLigne = 1; // Réinitialiser la position dans la nouvelle ligne
-        }
+
     }
-
-
-
-
-
-
 
 
     const letter = document.getElementsByClassName("letter");
@@ -70,7 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
         letter[i].addEventListener("click", () => {
             console.log(letter[i].innerText);
             const lettre = letter[i].innerText
-            saisirLettre(lettre);
+            saisi(lettre);
+
 
         });
     };
