@@ -29,11 +29,14 @@ document.addEventListener("DOMContentLoaded", () => {
         .join("");
     // créer variable mot splité
 
+
     const nombreTentatives = 6;
     const supprimer = document.getElementById("btnSuppr");
     const valider = document.getElementById("btnValider");
-    console.log(motAffiche);
     const tableau = document.getElementById("myTable");
+
+    console.log(motAffiche);
+
 
     for (let u = 0; u < nombreTentatives; u++) {
         const ligne = document.createElement("tr");
@@ -45,6 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
         tableau.appendChild(ligne);
     };
 
+
+    // fonction pour que la lettre se mette dans la cellule 1 ligne 0
     let choixJoueur = 0;
     let positionLigne = 1;
 
@@ -52,47 +57,78 @@ document.addEventListener("DOMContentLoaded", () => {
         const ligne = tableau.getElementsByTagName('tr')[choixJoueur];
         const cellules = ligne.getElementsByTagName("td");
 
+        console.log(lettre);
 
-        // pour entrer dans chaque cellule
+
 
         if (positionLigne < cellules.length) {
-            cellules[positionLigne].textContent = lettre;
+            cellules[positionLigne].textContent = lettre; // Insère la lettre dans la cellule courante
 
-        }
+            let motCherche = motAffiche.replace(motAffiche[0], '');
 
-        if (lettre === motAffiche[positionLigne]) {
-            cellules[positionLigne].classList.add("bien-place");
-        }
-        positionLigne++;
+            if (lettre === motAffiche[positionLigne]) {
 
+                cellules[positionLigne].classList.add("bien-place");
 
 
-        // pour passer a une autre ligne quand il atteind le nombre de case
+
+                // appliquer le css dans le clavier du HTML
+                // verrouiller la lettre
+                // reprendre la lettre ligne de dessous
+            }
+
+            else if (motCherche.includes(lettre)) {
+                cellules[positionLigne].classList.add("mal-place");
+
+
+            }
+            // si la lettre n'est pas dans le mot
+            else {
+                cellules[positionLigne].classList.add("incorrect");
+                // cellules[positionLigne].classList.add("incorrect")
+            };
+
+            positionLigne++; // Avance à la prochaine cellule;
+
+        };
+
+
         if (positionLigne === cellules.length) {
             choixJoueur++;
             positionLigne = 1;
+
         }
-        // 
-    }
+    };
 
 
+    // Fonction pour les touches clavier html
     const letter = document.getElementsByClassName("letter");
-    // Fonction pour les touches clavier
+
     for (let i = 0; i < letter.length; i++) {
         letter[i].addEventListener("click", () => {
-            console.log(letter[i].innerText);
             const lettre = letter[i].innerText
             saisi(lettre);
-
-
         });
     };
+
+    //Pour les touches clavier pc
     document.addEventListener("keydown", (e) => {
         console.log(e.key);
         const keybord = e.key;
-        saisi(keybord)
-
-
-
+        saisi(keybord);
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });
