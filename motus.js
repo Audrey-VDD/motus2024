@@ -14,12 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
         "terminal",
     ];
 
-
-
-
-
-
-
     const generateurMot = Math.floor(Math.random() * tableauMots.length);
     let motAffiche = tableauMots[generateurMot];
 
@@ -37,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(motAffiche);
 
 
+
     for (let u = 0; u < nombreTentatives; u++) {
         const ligne = document.createElement("tr");
         motAfficheMasque.split("").forEach((caractere) => {
@@ -52,34 +47,40 @@ document.addEventListener("DOMContentLoaded", () => {
     let choixJoueur = 0;
     let positionLigne = 1;
 
+
+
     function saisi(lettre) {
         const ligne = tableau.getElementsByTagName('tr')[choixJoueur];
         const cellules = ligne.getElementsByTagName("td");
 
-        console.log(lettre);
 
         
 
         if (positionLigne < cellules.length) {
             cellules[positionLigne].textContent = lettre; // Insère la lettre dans la cellule courante
 
+          let motCherche = motAffiche.replace(motAffiche[0],"");
 
-            console.log(motAffiche[1]);
-            // 1 = la lettre dans le mot
 
           if(lettre===motAffiche[positionLigne]){
-            cellules[positionLigne].classList.add("bien-place")
+            cellules[positionLigne].classList.add("bien-place");
             // appliquer le css dans le clavier du HTML
             // verrouiller la lettre
             // reprendre la lettre ligne de dessous
-          }
-          if (lettre != motAffiche[positionLigne]){
-            // appliquer css orange cellules[positionLigne].classList.add("mal-place")
-            // appliquer le css dans le clavier du HTML
+            
+            let lettreTrouve = document.getElementsByClassName("bien-place");
+            console.log(lettreTrouve);
+          
+
+
+
+          } else if (motCherche.includes(lettre)){
+              cellules[positionLigne].classList.add("mal-place");
+           // appliquer le css dans le clavier du HTML
           }
           // si la lettre n'est pas dans le mot
           else{
-            // cellules[positionLigne].classList.add("incorrect")
+            cellules[positionLigne].classList.add("incorrect");
           };
           
           positionLigne++; // Avance à la prochaine cellule;
@@ -96,7 +97,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-
     // Fonction pour les touches clavier html
     const letter = document.getElementsByClassName("letter");
 
@@ -109,10 +109,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Pour les touches clavier pc
     document.addEventListener("keydown", (e) => {
-        console.log(e.key);
         const keybord = e.key;
         saisi(keybord);
     });
+
+
+
+
+
+
+
 
 
 
