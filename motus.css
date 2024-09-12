@@ -1,47 +1,128 @@
-*{
+* {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-body{
-    background-color: rgb(198, 198, 240);
+
+:root {
+    --red-color: #DB3A34;
+    --yellow-color: #F7B735;
+
+}
+
+body {
+    background-color: #084C61;
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
-#clavier{
+
+h1 {
+    text-transform: uppercase;
+    color: white;
+    font-size: 3.5rem;
+
+}
+
+#m {
+    border: 1px solid var(--red-color);
+    font-size: 3rem;
+    padding: 0.5vw;
+    background-color: var(--red-color);
+    border-radius: 16px;
+}
+
+#t {
+    border: 1px solid var(--yellow-color);
+    font-size: 3rem;
+    padding: 0.5vw;
+    background-color: var(--yellow-color);
+    border-radius: 100%;
+
+}
+
+#s {
+    border: 1px solid var(--red-color);
+    font-size: 3rem;
+    padding: 0.5vw;
+    background-color: var(--red-color);
+    border-radius: 16px;
+}
+
+
+
+#clavier {
     display: flex;
 }
-#myTable, td, tr{
-    border: 1px solid rgb(205, 100, 100);
+
+#myTable,
+td,
+tr {
+    border: 3px solid white;
     font-size: 2rem;
+    color: white;
     text-transform: uppercase;
     font-weight: bold;
 }
-table{
+
+table {
     border-collapse: collapse;
     width: 100%;
     height: 100%;
     text-align: center;
 }
-#myTable{
-    width: 50vw;
-    height: 60vh;
+
+#myTable {
+    width: 40vw;
+    height: 50vh;
     margin-bottom: 5vh;
 }
-.button{
+
+.button {
     margin: 5px;
 }
-#clavier{
+
+#clavier {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
-#clavier>div{
+
+#clavier>div {
     display: flex;
+
 }
-button{
-    width: 5vw;
-    height: 7vh;
+
+button {
+    width: 4vw;
+    height: 11vh;
     border-radius: 15px;
     font-size: 0.9rem;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    font-size: 1.4rem;
+
+}
+
+button:hover {
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+.bien-place {
+    background-color: var(--red-color);
+    color: white;
+    border-radius: 100%;
+}
+
+.mal-place {
+    background-color: var(--yellow-color);
+    color: black;
+    border-radius: 100%;
+}
+
+.incorrect {
+    background-color: lightgray;
+    color: black;
 }
