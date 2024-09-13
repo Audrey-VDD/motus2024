@@ -10,7 +10,7 @@
 }
 
 body {
-    background-color: #084C61;
+    background-color: var(--blue-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -144,6 +144,7 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-right: 2vw;
     width: 6vw;
     height: 11vh;
     border-radius: 15px;
@@ -164,6 +165,7 @@ button:hover {
     #jouer {
         width: 25vw;
         padding-left: 5vw;
+        padding-right: 5vw;
         background-color: #DB3A34;
 
 
@@ -186,11 +188,12 @@ button:hover {
 
 }
 
+
 @media (min-width : 720px) {
     #jouer {
         background-color: var(--yellow-color);
         padding-left: 1.8vw;
-        padding-top: 1vh;
+        padding-top: 0.6vh;
         width: 15vw;
     }
 
@@ -202,10 +205,4 @@ button:hover {
     }
 
 
-}
-
-
-.supprimer {
-    background-color: #2EAAF7;
-    color: white;
 }

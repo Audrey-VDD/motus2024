@@ -108,6 +108,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
         })
 
+
+        // fonction pour supprimer la dernière lettre saisie
+
+        function supprimerDerniereLettre() {
+
+            const ligne = lignes[choixJoueur];
+            const cellules = ligne.getElementsByTagName("td");
+            if (positionLigne > 1) {
+                positionLigne--;
+                cellules[positionLigne].textContent = "-";
+
+            }
+
+
+        }
+
+        supprimer.addEventListener('click', () => {
+
+            supprimerDerniereLettre();
+        });
+
     }
 
     // Fonction pour les touches clavier html
