@@ -28,6 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const valider = document.getElementById("btnValider");
   const tableau = document.getElementById("myTable");
 
+  alert("Deviner le bon mot. \n \n Rouge = lettre bien placée. \n Orange = lettre présente mais mal placée. \n Gris = lettre non présente dans le mot. \n \n Bonne chance !");
+
   console.log(motAffiche);
 
   // Créer le tableau pour les essais
@@ -39,8 +41,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const cellule = document.createElement("td");
       cellule.textContent = index === 0 ? caractere : "-"; // Affiche la lettre bien placée ou le caractère masqué
       ligne.appendChild(cellule);
+
     });
+let jouer = document.getElementById("jouer");
+  jouer.addEventListener('click', ()=> {
+
+
+
     tableau.appendChild(ligne);
+});
+
     lignes.push(ligne); // Ajouter la ligne à un tableau pour une utilisation future
   }
 
