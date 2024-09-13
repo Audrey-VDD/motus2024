@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Touche jouer fait apparaitre le tableau
         let jouer = document.getElementById("jouer");
-        jouer.addEventListener('click', () => {
+        jouer.addEventListener("click", () => {
             tableau.appendChild(ligne);
         });
 
@@ -89,16 +89,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             positionLigne++;
 
-        } 
+        }
 
 
-        
-        
+
+
 
         valider.addEventListener('click', () => {
 
 
-            
+
             if (positionLigne === cellules.length) {
                 // Passer à la ligne suivante
                 choixJoueur++;
@@ -112,16 +112,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
             }
-            
+
             let rouge = ligne.getElementsByClassName("bien-place");
             console.log(rouge.length);
             console.log(motAffiche.length == (rouge.length + 1));
             console.log(motAffiche == (rouge + 1));
-            if((rouge.length + 1) === motAffiche.length){
+            if ((rouge.length + 1) === motAffiche.length) {
                 alert("VICTOIRE !");
-                
-            }else{
-                
+
+            } else {
+
             }
 
         })
@@ -131,6 +131,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     }
+
+
+    // fonction pour supprimer la dernière lettre saisie
+
+    function supprimerDerniereLettre() {
+        const ligne = lignes[choixJoueur];
+        const cellules = ligne.getElementsByTagName("td");
+        if (positionLigne > 1) {
+            positionLigne--;
+            cellules[positionLigne].classList.remove("bien-place");
+            cellules[positionLigne].classList.remove("mal-place");
+            cellules[positionLigne].classList.remove("incorrect");
+            cellules[positionLigne].textContent = "-";
+        }
+    }
+
+    supprimer.addEventListener("click", () => {
+        supprimerDerniereLettre();
+    });
 
 
 
@@ -157,5 +176,18 @@ document.addEventListener("DOMContentLoaded", () => {
         if (keybord.length === 1 && keybord.match(/[a-z]/)) {
             saisi(keybord);
         }
+
+        else if (keybord === "backspace" || keybord === "delete") {
+            supprimerDerniereLettre();
+        } else if (keybord === "enter") {
+            valider.click(); // Simuler le clic sur le bouton "Valider"
+        }
+
+
+
+
+
+
+
     });
 });
