@@ -13,63 +13,53 @@ document.addEventListener("DOMContentLoaded", () => {
         "protocol",
         "terminal",
     ];
+
     const generateurMot = Math.floor(Math.random() * tableauMots.length);
     let motAffiche = tableauMots[generateurMot];
 
-    // split le mot choisi
+    // Initialisation du mot masqué
     let motAfficheMasque = motAffiche
         .split("")
         .map((lettre, index) => (index === 0 ? lettre : "-"))
         .join("");
 
-    // nbre tentatives = nbre lignes
     const nombreTentatives = 6;
     const supprimer = document.getElementById("btnSuppr");
     const valider = document.getElementById("btnValider");
     const tableau = document.getElementById("myTable");
 
-    // Ouverture de la page, alerte : 
     alert("Deviner le bon mot. \n \n Rouge = lettre bien placée. \n Orange = lettre présente mais mal placée. \n Gris = lettre non présente dans le mot. \n \n Bonne chance !");
 
-    // Création d'un second tableau
+    // Créer le tableau pour les essais
     const lignes = [];
-    // array qui stocke nos bonnes lettres
-    const lettresBienPlacees = Array(motAffiche.length).fill(null);
-
-    // Affichage de notre tableau tr et td
+    const lettresBienPlacees = Array(motAffiche.length).fill(null); // Tableau pour stocker les lettres bien placées
     for (let u = 0; u < nombreTentatives; u++) {
         const ligne = document.createElement("tr");
-        // pour chaque lettre du mot, s'il est présent dans Array, tu le mets ligne du dessous ou tu remets un _
         motAfficheMasque.split("").forEach((caractere, index) => {
             const cellule = document.createElement("td");
-            cellule.textContent = index === 0 ? caractere : "-";
+            cellule.textContent = index === 0 ? caractere : "-"; // Affiche la lettre bien placée ou le caractère masqué
             ligne.appendChild(cellule);
 
         });
-
-        // Touche jouer fait apparaitre le tableau
         let jouer = document.getElementById("jouer");
-        jouer.addEventListener("click", () => {
+        jouer.addEventListener('click', () => {
+
+
+
             tableau.appendChild(ligne);
         });
 
-        // Tu affiches la ligne array dans la ligne du tableau
-        lignes.push(ligne);
+        lignes.push(ligne); // Ajouter la ligne à un tableau pour une utilisation future
     }
 
-    // la première ligne
     let choixJoueur = 0;
-
-    // la deuxième cellule
     let positionLigne = 1;
 
-    // fonction pour les couleurs
     function saisi(lettre) {
         const ligne = lignes[choixJoueur];
         const cellules = ligne.getElementsByTagName("td");
+        // const motActuel = motAffiche.split(""); Elle ne sert à rien
 
-
-        // Si tu n'es pas à la fin de la ligne
         if (positionLigne < cellules.length) {
             if (positionLigne > 0) { // Ne pas modifier la première cellule
                 cellules[positionLigne].textContent = lettre; // Insère la lettre dans la cellule courante
@@ -80,8 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     lettresBienPlacees[positionLigne] = lettre; // Conserver la lettre bien placée
                 } else if (motAffiche.includes(lettre)) {
                     cellules[positionLigne].classList.add("mal-place");
-
-
                 } else {
                     cellules[positionLigne].classList.add("incorrect");
                 }
@@ -89,17 +77,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
             positionLigne++;
 
-        }
+        } 
 
-
-
-
+        let tousCss = document.getElementsByClassName("bien-place");
+        console.log(tousCss.length);
+        console.log(motAffiche.length == (tousCss.length + 1));
+        
+        
 
         valider.addEventListener('click', () => {
-
-
-
-            if (positionLigne === cellules.length) {
+            if(motAffiche.length == (tousCss.length + 1)){
+                alert("VICTOIRE !!")
+            } else if (positionLigne === cellules.length) {
                 // Passer à la ligne suivante
                 choixJoueur++;
                 positionLigne = 1;
@@ -113,49 +102,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
 
-            let rouge = ligne.getElementsByClassName("bien-place");
-            console.log(rouge.length);
-            console.log(motAffiche.length == (rouge.length + 1));
-            console.log(motAffiche == (rouge + 1));
-            if ((rouge.length + 1) === motAffiche.length) {
-                alert("VICTOIRE !");
-
-            } else {
-
-            }
 
         })
-
-
-
-
-
     }
-
-
-    // fonction pour supprimer la dernière lettre saisie
-
-    function supprimerDerniereLettre() {
-        const ligne = lignes[choixJoueur];
-        const cellules = ligne.getElementsByTagName("td");
-        if (positionLigne > 1) {
-            positionLigne--;
-            cellules[positionLigne].classList.remove("bien-place");
-            cellules[positionLigne].classList.remove("mal-place");
-            cellules[positionLigne].classList.remove("incorrect");
-            cellules[positionLigne].textContent = "-";
-        }
-    }
-
-    supprimer.addEventListener("click", () => {
-        supprimerDerniereLettre();
-    });
-
-
-
-
-
-
 
 
 
@@ -176,18 +125,5 @@ document.addEventListener("DOMContentLoaded", () => {
         if (keybord.length === 1 && keybord.match(/[a-z]/)) {
             saisi(keybord);
         }
-
-        else if (keybord === "backspace" || keybord === "delete") {
-            supprimerDerniereLettre();
-        } else if (keybord === "enter") {
-            valider.click(); // Simuler le clic sur le bouton "Valider"
-        }
-
-
-
-
-
-
-
     });
 });
