@@ -73,6 +73,7 @@ let jouer = document.getElementById("jouer");
         // Vérifier si la lettre est correcte
         if (lettre === motAffiche[positionLigne]) {
           cellules[positionLigne].classList.add("bien-place");
+
           lettresBienPlacees[positionLigne] = lettre; // Conserver la lettre bien placée
         } else if (motAffiche.includes(lettre)) {
           cellules[positionLigne].classList.add("mal-place");
@@ -111,8 +112,10 @@ function supprimerDerniereLettre(){
   const cellules = ligne.getElementsByTagName("td");
   if(positionLigne>1){
     positionLigne--;
+
     cellules[positionLigne].textContent = "-";
-    cellules[positionLigne].classList.add("supprimer");
+
+
   }
 
   
