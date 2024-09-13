@@ -91,8 +91,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             positionLigne++;
         }
+        valider.addEventListener('click', () => {
 
-        valider.addEventListener("click", () => {
             if (positionLigne === cellules.length) {
                 // Passer à la ligne suivante
                 choixJoueur++;
@@ -125,6 +125,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const keybord = e.key.toLowerCase();
         if (keybord.length === 1 && keybord.match(/[a-z]/)) {
             saisi(keybord);
+
+        } else if (keybord === "backspace") {
+            supprimerDerniereLettre();
         }
+        else if (keybord === "delete") {
+            supprimerDerniereLettre();
+        }
+
+
     });
+
+
 });

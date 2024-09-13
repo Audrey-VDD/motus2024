@@ -10,7 +10,7 @@
 }
 
 body {
-    background-color: var(--blue-color);
+    background-color: #084C61;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -202,4 +202,10 @@ button:hover {
     }
 
 
+}
+
+
+.supprimer {
+    background-color: #2EAAF7;
+    color: white;
 }
