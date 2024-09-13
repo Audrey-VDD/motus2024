@@ -51,6 +51,8 @@ let jouer = document.getElementById("jouer");
     tableau.appendChild(ligne);
 });
 
+
+
     lignes.push(ligne); // Ajouter la ligne à un tableau pour une utilisation future
   }
 
@@ -74,14 +76,17 @@ let jouer = document.getElementById("jouer");
           lettresBienPlacees[positionLigne] = lettre; // Conserver la lettre bien placée
         } else if (motAffiche.includes(lettre)) {
           cellules[positionLigne].classList.add("mal-place");
-        } else {
+        } else  {
           cellules[positionLigne].classList.add("incorrect");
         }
+
+        
       }
 
       positionLigne++;
     }
-
+    valider.addEventListener('click', () => {
+    
     if (positionLigne === cellules.length) {
       // Passer à la ligne suivante
       choixJoueur++;
@@ -94,7 +99,33 @@ let jouer = document.getElementById("jouer");
         });
       }
     }
+  });
+
   }
+
+// fonction pour supprimer la dernière lettre saisie
+
+function supprimerDerniereLettre(){
+  
+  const ligne = lignes[choixJoueur];
+  const cellules = ligne.getElementsByTagName("td");
+  if(positionLigne>1){
+    positionLigne--;
+    cellules[positionLigne].textContent = "-";
+    cellules[positionLigne].classList.add("supprimer");
+  }
+
+  
+}
+
+supprimer.addEventListener('click', () =>{
+
+  supprimerDerniereLettre();
+});
+
+
+
+
 
   // Fonction pour les touches clavier html
   const letter = document.getElementsByClassName("letter");
@@ -110,7 +141,14 @@ let jouer = document.getElementById("jouer");
   document.addEventListener("keydown", (e) => {
     const keybord = e.key.toLowerCase();
     if (keybord.length === 1 && keybord.match(/[a-z]/)){
-      saisi(keybord);
+saisi(keybord);
+
+    } else if (keybord === "backspace"){
+      supprimerDerniereLettre();
     }
+  
+ 
   });
+
+
 });
