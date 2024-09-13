@@ -123,10 +123,6 @@ supprimer.addEventListener('click', () =>{
   supprimerDerniereLettre();
 });
 
-
-
-
-
   // Fonction pour les touches clavier html
   const letter = document.getElementsByClassName("letter");
 
@@ -144,6 +140,9 @@ supprimer.addEventListener('click', () =>{
 saisi(keybord);
 
     } else if (keybord === "backspace"){
+      supprimerDerniereLettre();
+    }
+    else if (keybord === "delete"){
       supprimerDerniereLettre();
     }
   
