@@ -13,14 +13,17 @@ document.addEventListener("DOMContentLoaded", () => {
         "protocol",
         "terminal",
     ];
+
+    // choisi un index au hasard dans le tableau de mots
     const generateurMot = Math.floor(Math.random() * tableauMots.length);
     let motAffiche = tableauMots[generateurMot];
 
-    // split le mot choisi
+    // split le mot choisi + remplace par des tirets sauf première lettre
     let motAfficheMasque = motAffiche
         .split("")
         .map((lettre, index) => (index === 0 ? lettre : "-"))
         .join("");
+
 
     // nbre tentatives = nbre lignes
     const nombreTentatives = 6;
@@ -28,15 +31,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const valider = document.getElementById("btnValider");
     const tableau = document.getElementById("myTable");
 
+
     // Ouverture de la page, alerte : 
     alert("Deviner le bon mot. \n \n Rouge = lettre bien placée. \n Orange = lettre présente mais mal placée. \n Gris = lettre non présente dans le mot. \n \n Bonne chance !");
 
-    // Création d'un second tableau
+
+    // Création d'un second tableau pour stocker les LIGNES renseignées par joueur
     const lignes = [];
-    // array qui stocke nos bonnes lettres
+    // array qui stocke nos bonnes LETTRES
     const lettresBienPlacees = Array(motAffiche.length).fill(null);
 
-    // Affichage de notre tableau tr et td
+
+    // Affichage de notre tableau html tr et td
     for (let u = 0; u < nombreTentatives; u++) {
         const ligne = document.createElement("tr");
         // pour chaque lettre du mot, s'il est présent dans Array, tu le mets ligne du dessous ou tu remets un _
@@ -57,13 +63,16 @@ document.addEventListener("DOMContentLoaded", () => {
         lignes.push(ligne);
     }
 
-    // la première ligne
+    // ligne saisie par joueur
     let choixJoueur = 0;
 
-    // la deuxième cellule
+    // position dans la ligne au moment de taper lettre
     let positionLigne = 1;
 
+
+
     // fonction pour les couleurs
+
     function saisi(lettre) {
         const ligne = lignes[choixJoueur];
         const cellules = ligne.getElementsByTagName("td");
@@ -71,10 +80,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Si tu n'es pas à la fin de la ligne
         if (positionLigne < cellules.length) {
-            if (positionLigne > 0) { // Ne pas modifier la première cellule
-                cellules[positionLigne].textContent = lettre; // Insère la lettre dans la cellule courante
+            if (positionLigne > 0) { 
+                // met la lettre dans positionLigne là où on écrit
+                cellules[positionLigne].textContent = lettre; 
 
-                // Vérifier si la lettre est correcte
+                // Vérifier si la lettre est égale à la lettre du mot affiché grace index positionLigne
                 if (lettre === motAffiche[positionLigne]) {
                     cellules[positionLigne].classList.add("bien-place");
                     lettresBienPlacees[positionLigne] = lettre; // Conserver la lettre bien placée
@@ -91,13 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-
-
-
-
         valider.addEventListener('click', () => {
-
-
 
             if (positionLigne === cellules.length) {
                 // Passer à la ligne suivante
@@ -113,12 +117,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
 
+
+            // Déterminer alerte si nombre de rouge +1 sur ligne = nombre de lettres dans le mot
             let rouge = ligne.getElementsByClassName("bien-place");
             console.log(rouge.length);
             console.log(motAffiche.length == (rouge.length + 1));
             console.log(motAffiche == (rouge + 1));
             if ((rouge.length + 1) === motAffiche.length) {
-                alert("VICTOIRE !");
+
+                // Le modal pour annoncer une victoire
+                let modal = document.getElementById("myModal");
+                span = document.getElementsByClassName("close")[0];
+                modal.style.display = "block";
+                span.addEventListener('click', ()=>{
+                    modal.style.display = "none";
+                })
+
+                // Test return à chercher
+                return(lettre);
 
             } else {
 
@@ -131,6 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     }
+
 
 
     // fonction pour supprimer la dernière lettre saisie
@@ -150,11 +167,6 @@ document.addEventListener("DOMContentLoaded", () => {
     supprimer.addEventListener("click", () => {
         supprimerDerniereLettre();
     });
-
-
-
-
-
 
 
 
@@ -182,12 +194,6 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (keybord === "enter") {
             valider.click(); // Simuler le clic sur le bouton "Valider"
         }
-
-
-
-
-
-
 
     });
 });
