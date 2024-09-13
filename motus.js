@@ -1,21 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const tableauMots = [
-        "cache",
-        "codes",
-        "liens",
-        "octets",
-        "cookie",
-        "emuler",
-        "binaire",
-        "curseur",
-        "domaine",
-        "logiciel",
-        "protocol",
-        "terminal",
-    ];
-
-    const generateurMot = Math.floor(Math.random() * tableauMots.length);
-    let motAffiche = tableauMots[generateurMot];
 
     const tableauMots = [
         "cache",
@@ -59,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const ligne = document.createElement("tr");
         motAfficheMasque.split("").forEach((caractere, index) => {
             const cellule = document.createElement("td");
-            cellule.textContent = index === 0 ? caractere : "-"; // Affiche la lettre bien placée ou le caractère masqué
+            cellule.textContent = index === 0 ? caractere : "."; // Affiche la lettre bien placée ou le caractère masqué
             ligne.appendChild(cellule);
 
         });
@@ -78,6 +61,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // fonction pour que la lettre se mette dans la cellule 1 ligne 0
     let choixJoueur = 0;
     let positionLigne = 1;
+
+
 
 
 
@@ -107,18 +92,22 @@ document.addEventListener("DOMContentLoaded", () => {
             positionLigne++;
         }
 
-        if (positionLigne === cellules.length) {
-            // Passer à la ligne suivante
-            choixJoueur++;
-            positionLigne = 1;
+        valider.addEventListener("click", () => {
+            if (positionLigne === cellules.length) {
+                // Passer à la ligne suivante
+                choixJoueur++;
+                positionLigne = 1;
 
-            if (choixJoueur < nombreTentatives) {
-                // Réinitialiser le tableau pour la prochaine ligne avec les lettres bien placées
-                lignes[choixJoueur].querySelectorAll("td").forEach((cellule, index) => {
-                    cellule.textContent = lettresBienPlacees[index] || (index === 0 ? motAffiche[index] : "-");
-                });
+                if (choixJoueur < nombreTentatives) {
+                    // Réinitialiser le tableau pour la prochaine ligne avec les lettres bien placées
+                    lignes[choixJoueur].querySelectorAll("td").forEach((cellule, index) => {
+                        cellule.textContent = lettresBienPlacees[index] || (index === 0 ? motAffiche[index] : "-");
+                    });
+                }
             }
-        }
+
+        })
+
     }
 
     // Fonction pour les touches clavier html
