@@ -156,10 +156,15 @@ button:hover {
     background-color: #eee;
 }
 
+td {
+    width: 3vw;
+}
+
 .bien-place {
     background-color: var(--red-color);
     color: black;
     border-radius: 100%;
+
 
 }
 
@@ -167,12 +172,14 @@ button:hover {
     background-color: var(--yellow-color);
     color: black;
     border-radius: 100%;
+
 }
 
 .incorrect {
     background-color: lightgray;
     color: black;
     border-radius: 100%;
+
 }
 
 .letter {

@@ -17,14 +17,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // let motAffiche = tableauMots[generateurMot];
 
     // Utilisation de l'API pour obtenir un mot aléatoire
-    fetch("https://trouve-mot.fr/api/random/1")
+    fetch("https://trouve-mot.fr/api/sizemin/5/10")
         .then((response) => response.json()) // 
         .then((words) => {
             let motAffiche = words[0].name; // Assigne le premier mot récupéré à motAffiche
 
             // Suppression des accents et caractères spéciaux
             let motSansAccents = motAffiche.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            let motCherche = motSansAccents.replace(motSansAccents[0], "")
             console.log(motSansAccents); // Afficher le mot sans accents pour vérification
+
 
             // split le mot choisi et masquer toutes les lettres sauf la première
             let motAfficheMasque = motSansAccents
@@ -95,14 +97,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 const cellules = ligne.getElementsByTagName("td");
 
                 // Vérifier chaque lettre
-                for (let i = 1; i < cellules.length; i++) { // Commence à 1 pour ne pas modifier la première lettre
+                for (let i = 1; i < cellules.length; i++) { // Commence à 1 pour ne pas changer la premiere lettre
                     const lettre = cellules[i].textContent.toLowerCase();
 
                     // Vérifier si la lettre est bien placée
                     if (lettre === motSansAccents[i]) {
                         cellules[i].classList.add("bien-place");
                         lettresBienPlacees[i] = lettre; // Conserver la lettre bien placée
-                    } else if (motSansAccents.includes(lettre)) {
+                    } else if (motCherche.includes(lettre)) {
                         cellules[i].classList.add("mal-place");
                     } else {
                         cellules[i].classList.add("incorrect");
