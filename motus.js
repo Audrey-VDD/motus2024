@@ -82,7 +82,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Si tu n'es pas à la fin de la ligne
                 if (positionLigne < cellules.length) {
                     if (positionLigne > 0) { // Ne pas modifier la première cellule
-                        cellules[positionLigne].textContent = lettre; // Insère la lettre dans la cellule courante
+                        // Met la letttre dans positionLigne la ou on ecrit
+                        cellules[positionLigne].textContent = lettre;
 
                         // Vérifier si la lettre est correcte
                         if (lettre === motSansAccents[positionLigne]) {
@@ -111,15 +112,36 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
                     }
 
-                    // Vérification victoire
+                    // Déterminer alerte si nombre de rouge +1 sur ligne = nombre de lettres dans le mot
                     let rouge = ligne.getElementsByClassName("bien-place");
-                    if ((rouge.length + 1) === motSansAccents.length) {
-                        alert("VICTOIRE !");
-                        if (confirm("Voulez-vous rejouer?")) {
-                            location.reload();
-                        }
+                    console.log(rouge.length);
+                    console.log(motAffiche.length == (rouge.length + 1));
+                    console.log(motAffiche == (rouge + 1));
+                    if ((rouge.length + 1) === motAffiche.length) {
+
+                        // Le modal pour annoncer une victoire
+                        let modal = document.getElementById("myModal");
+                        span = document.getElementsByClassName("close")[0];
+                        modal.style.display = "block";
+                        span.addEventListener('click', () => {
+                            modal.style.display = "none";
+                            location.reload()
+                        })
+
+                        // Test return à chercher
+
+
+                    } else {
+
                     }
-                });
+
+
+                })
+
+
+
+
+
             }
 
             // fonction pour supprimer la dernière lettre saisie

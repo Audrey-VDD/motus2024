@@ -157,6 +157,47 @@ button:hover {
 
 }
 
+/* CSS du modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    width: 60%;
+    height: 50%;
+    margin-top: 5%;
+    background-color: #2486c3;
+    border: 2px solid #F7B735;
+    border-radius: 25px;
+}
+
+.modalContent {
+    background-color: #2eaaf7;
+    border: 2px solid #F7B735;
+    border-radius: 25px;
+    margin-top: 5%;
+    height: 70%;
+}
+
+.close {
+    color: var(--yellow-color);
+    float: right;
+    font-size: 40px;
+    font-weight: bold;
+    margin-right: 5%;
+}
+
+.close:hover {
+    color: var(--red-color);
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.modalContent>h3 {
+    color: white;
+    font-size: 5rem;
+    text-align: center;
+}
+
 /* --------------------------media Queries----------------------
 */
 
