@@ -120,10 +120,13 @@ button {
 
 }
 
+
+
 #btnSuppr {
     background-color: var(--blue-color);
     border: none;
     box-shadow: none;
+
 }
 
 #btnSuppr>img {
@@ -238,6 +241,19 @@ button:hover {
     font-size: 5rem;
     text-align: center;
 }
+
+#myModalLoose {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    width: 60%;
+    height: 50%;
+    margin-top: 5%;
+    background-color: #2486c3;
+    border: 2px solid #F7B735;
+    border-radius: 25px;
+}
+
 
 /* --------------------------media Queries----------------------
 */

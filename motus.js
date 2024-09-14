@@ -84,78 +84,68 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (positionLigne > 0) { // Ne pas modifier la première cellule
                         // Met la letttre dans positionLigne la ou on ecrit
                         cellules[positionLigne].textContent = lettre;
-
-                        // Vérifier si la lettre est correcte
-                        if (lettre === motSansAccents[positionLigne]) {
-                            cellules[positionLigne].classList.add("bien-place");
-                            lettresBienPlacees[positionLigne] = lettre; // Conserver la lettre bien placée
-                        } else if (motSansAccents.includes(lettre)) {
-                            cellules[positionLigne].classList.add("mal-place");
-                        } else {
-                            cellules[positionLigne].classList.add("incorrect");
-                        }
                     }
                     positionLigne++;
                 }
-
-
-                valider.addEventListener('click', () => {
-                    if (positionLigne < cellules.length) {
-                        if (positionLigne > 0) { // Ne pas modifier la première cellule
-                            // Met la letttre dans positionLigne la ou on ecrit
-                            cellules[positionLigne].textContent = lettre;
-
-                        }
-                        positionLigne++;
-                    }
-
-
-
-                    if (positionLigne === cellules.length) {
-                        // Passer à la ligne suivante
-                        choixJoueur++;
-                        positionLigne = 1;
-
-                        if (choixJoueur < nombreTentatives) {
-                            // Réinitialiser le tableau pour la prochaine ligne avec les lettres bien placées
-                            lignes[choixJoueur].querySelectorAll("td").forEach((cellule, index) => {
-                                cellule.textContent = lettresBienPlacees[index] || (index === 0 ? motSansAccents[index] : "-");
-                            });
-                        }
-                    }
-
-                    // Déterminer alerte si nombre de rouge +1 sur ligne = nombre de lettres dans le mot
-                    let rouge = ligne.getElementsByClassName("bien-place");
-                    console.log(rouge.length);
-                    console.log(motAffiche.length == (rouge.length + 1));
-                    console.log(motAffiche == (rouge + 1));
-                    if ((rouge.length + 1) === motAffiche.length) {
-
-                        // Le modal pour annoncer une victoire
-                        let modal = document.getElementById("myModal");
-                        span = document.getElementsByClassName("close")[0];
-                        modal.style.display = "block";
-                        span.addEventListener('click', () => {
-                            modal.style.display = "none";
-                            location.reload()
-
-                        })
-
-                        // Test return à chercher
-
-
-                    } else {
-
-                    }
-
-
-                })
-
-
-
-
-
             }
+
+            // Validation du mot
+            valider.addEventListener('click', () => {
+                const ligne = lignes[choixJoueur];
+                const cellules = ligne.getElementsByTagName("td");
+
+                // Vérifier chaque lettre
+                for (let i = 1; i < cellules.length; i++) { // Commence à 1 pour ne pas modifier la première lettre
+                    const lettre = cellules[i].textContent.toLowerCase();
+
+                    // Vérifier si la lettre est bien placée
+                    if (lettre === motSansAccents[i]) {
+                        cellules[i].classList.add("bien-place");
+                        lettresBienPlacees[i] = lettre; // Conserver la lettre bien placée
+                    } else if (motSansAccents.includes(lettre)) {
+                        cellules[i].classList.add("mal-place");
+                    } else {
+                        cellules[i].classList.add("incorrect");
+                    }
+                }
+
+                // Passer à la ligne suivante
+                if (positionLigne === cellules.length) {
+                    choixJoueur++;
+                    positionLigne = 1;
+
+                    if (choixJoueur < nombreTentatives) {
+                        // Réinitialiser la ligne suivante avec les lettres bien placées
+                        lignes[choixJoueur].querySelectorAll("td").forEach((cellule, index) => {
+                            cellule.textContent = lettresBienPlacees[index] || (index === 0 ? motSansAccents[index] : "-");
+                        });
+                    }
+                }
+
+                // Déterminer alerte si toutes les lettres sont bien placées
+                let rouge = ligne.getElementsByClassName("bien-place");
+                if ((rouge.length + 1) === motSansAccents.length) {
+                    // Le modal pour annoncer une victoire
+                    let modal = document.getElementById("myModal");
+                    let span = document.getElementsByClassName("close")[0];
+                    modal.style.display = "block";
+                    span.addEventListener('click', () => {
+                        modal.style.display = "none";
+                        location.reload(); // Recharger la page pour recommencer
+                    });
+                } else if (choixJoueur === nombreTentatives - 0) { // Si le joueur a atteint le nombre maximum de tentatives
+                    // Le modal pour annoncer une défaite
+                    // let modal = document.getElementById("myModal");
+                    // let span = document.getElementsByClassName("close")[0];
+                    // modal.style.display = "block";
+                    // span.addEventListener('click', () => {
+                    //     modal.style.display = "none";
+                    //     location.reload(); // Recharger la page pour recommencer
+                    // });a
+                    alert("Vous avez perdu le mot à deviner était : " + motSansAccents);
+                    location.reload(jouer);
+                }
+            });
 
             // fonction pour supprimer la dernière lettre saisie
             function supprimerDerniereLettre() {
@@ -168,17 +158,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
+            // Supprimer la lettre avec le bouton "Supprimer"
             supprimer.addEventListener("click", () => {
                 supprimerDerniereLettre();
             });
 
-            // Fonction pour les touches clavier html
+            // Fonction pour les touches clavier HTML
             const letter = document.getElementsByClassName("letter");
-            for (let i = 1; i < letter.length; i++) {
+            for (let i = 0; i < letter.length; i++) {
                 letter[i].addEventListener("click", () => {
                     const lettre = letter[i].innerText.toLowerCase();
                     saisi(lettre);
-
                 });
             }
 
