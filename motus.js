@@ -98,7 +98,19 @@ document.addEventListener("DOMContentLoaded", () => {
                     positionLigne++;
                 }
 
+
                 valider.addEventListener('click', () => {
+                    if (positionLigne < cellules.length) {
+                        if (positionLigne > 0) { // Ne pas modifier la première cellule
+                            // Met la letttre dans positionLigne la ou on ecrit
+                            cellules[positionLigne].textContent = lettre;
+
+                        }
+                        positionLigne++;
+                    }
+
+
+
                     if (positionLigne === cellules.length) {
                         // Passer à la ligne suivante
                         choixJoueur++;
@@ -126,6 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         span.addEventListener('click', () => {
                             modal.style.display = "none";
                             location.reload()
+
                         })
 
                         // Test return à chercher
@@ -161,10 +174,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Fonction pour les touches clavier html
             const letter = document.getElementsByClassName("letter");
-            for (let i = 0; i < letter.length; i++) {
+            for (let i = 1; i < letter.length; i++) {
                 letter[i].addEventListener("click", () => {
                     const lettre = letter[i].innerText.toLowerCase();
                     saisi(lettre);
+
                 });
             }
 
