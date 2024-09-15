@@ -49,9 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Les scores seront remis à zéro !");
     });
 
-    // Utilisation de l'API pour obtenir un mot aléatoire de minimu 5 lettres et max 10 lettres
-    fetch("https://trouve-mot.fr/api/sizemin/5/10")
-        .then((response) => response.json()) // 
+    // Utilisation de l'API pour obtenir un mot aléatoire de minimu 5 lettres et max 8 lettres
+    fetch("https://trouve-mot.fr/api/sizemin/5/8")
+        .then((response) => response.json())
         .then((words) => {
             let motAffiche = words[0].name; // Assigne le premier mot récupéré à motAffiche
 

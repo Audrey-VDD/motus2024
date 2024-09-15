@@ -74,8 +74,8 @@ table {
 }
 
 #myTable {
-    width: 40vw;
-    height: 50vh;
+    width: 20vw;
+    height: 30vh;
     margin-bottom: 5vh;
 
 }
@@ -93,12 +93,23 @@ table {
 
 #clavier>div {
     display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 
+.letter {
+    margin: 1px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    cursor: pointer;
+    align-items: center;
+}
+
+
 button {
-    width: 4vw;
-    height: 11vh;
+    width: 2vw;
+    height: 5vh;
     border-radius: 15px;
     font-size: 0.9rem;
     background-color: transparent;
@@ -118,7 +129,7 @@ button {
 #btnValider>img {
     padding-top: 2vh;
 
-    width: 4vw;
+    width: 2vw;
 
 }
 
@@ -132,16 +143,16 @@ button {
 }
 
 #btnSuppr>img {
-    width: 4vw;
+    width: 2vw;
 
-    padding-right: 1.2vw;
-    padding-top: 2.5vh;
+    padding-top: 1vh;
 
 }
 
 #boutonJeu {
     display: flex;
     flex-direction: row;
+    align-items: center;
 
 
 }
@@ -150,27 +161,31 @@ button {
     margin-right: 10vw;
     display: flex;
     width: 6vw;
-    height: 11vh;
+    height: 5.5vh;
     border-radius: 15px;
     font-size: 0.9rem;
     background-color: transparent;
     border: 2px solid white;
     color: white;
     font-size: 1.4rem;
-    margin-bottom: 2vh;
-
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--red-color);
 }
 
 #resetScores {
-    width: 6vw;
-    height: 11vh;
+    width: 9vw;
+    height: 8vh;
     border-radius: 15px;
     font-size: 0.9rem;
     background-color: transparent;
     border: 2px solid white;
     color: white;
     font-size: 1.4rem;
-    margin-bottom: 2vh;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--yellow-color);
 }
 
 
@@ -188,7 +203,7 @@ td {
 .bien-place {
     background-color: var(--red-color);
     color: black;
-    border-radius: 100%;
+    /* border-radius: 100%; */
 
 
 }
@@ -196,40 +211,14 @@ td {
 .mal-place {
     background-color: var(--yellow-color);
     color: black;
-    border-radius: 100%;
+    /* border-radius: 100%; */
 
 }
 
 .incorrect {
     background-color: lightgray;
     color: black;
-    border-radius: 100%;
-
-}
-
-.letter {
-    align-items: center;
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    display: inline-block;
-    cursor: pointer;
-}
-
-#jouer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-right: 2vw;
-    width: 6vw;
-    height: 11vh;
-    border-radius: 15px;
-    font-size: 1vw;
-    background-color: transparent;
-    border: 2px solid white;
-    color: white;
-    font-size: 1.4rem;
-    margin-bottom: 2vw;
+    /* border-radius: 100%; */
 
 }
 
@@ -292,17 +281,28 @@ td {
 
 @media (max-width : 480px) {
 
+
+
+
     #jouer {
+        padding-left: 20px;
         width: 25vw;
-        padding-left: 5vw;
-        padding-right: 5vw;
-        background-color: #DB3A34;
+        background-color: var(--yellow-color);
+
+
+    }
+
+    #resetScores {
+        width: 35vw;
+
+        padding-right: 1vw;
+        background-color: var(--yellow-color);
 
 
     }
 
     #myTable {
-        width: 75vw;
+        width: 60vw;
     }
 
     button {
@@ -315,32 +315,22 @@ td {
 
     }
 
-
-}
-
-
-@media (min-width : 720px) {
-    #jouer {
-        background-color: var(--yellow-color);
-        padding-left: 1.8vw;
-        padding-top: 0.6vh;
-        width: 15vw;
+    #btnSuppr {
+        margin-right: 3vw;
     }
 
-    #resetScores {
-        background-color: var(--yellow-color);
-        padding-left: 1.8vw;
-        padding-top: 0.6vh;
-        width: 15vw;
+    #btnSuppr>img {
+        width: 8vw;
+
     }
 
+    #btnValider>img {
+        width: 6vw;
 
+    }
 
-    button {
-        width: 5.5vw;
-        padding-bottom: 1vh;
-        padding-left: 0.8vw;
-
+    #btnValider {
+        margin-bottom: 2.5vh;
     }
 
 
