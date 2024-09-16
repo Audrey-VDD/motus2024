@@ -120,9 +120,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Déterminer alerte si nombre de rouge +1 sur ligne = nombre de lettres dans le mot
             let rouge = ligne.getElementsByClassName("bien-place");
-            console.log(rouge.length);
-            console.log(motAffiche.length == (rouge.length + 1));
-            console.log(motAffiche == (rouge + 1));
+
+            
             if ((rouge.length + 1) === motAffiche.length) {
 
                 // Le modal pour annoncer une victoire
@@ -133,8 +132,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     modal.style.display = "none";
                 })
 
+
+
                 // Test return à chercher
-                return(lettre);
+                return(cellules);
 
             } else {
 
