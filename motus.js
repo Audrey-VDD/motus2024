@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // const generateurMot = Math.floor(Math.random() * tableauMots.length);
     // let motAffiche = tableauMots[generateurMot];
 
+
+
+
     // Pour garder les scores aux raffraichissement de pages
     let scoreVictoire = parseInt(localStorage.getItem('victoire')) || 0;
     let scoreDefaite = parseInt(localStorage.getItem('defaite')) || 0;
@@ -25,9 +28,22 @@ document.addEventListener("DOMContentLoaded", () => {
     let victoire = document.getElementById("scoreVictoire");
     let defaite = document.getElementById("scoreDefaite");
 
+
     // Mettre à jour l'affichage des scores
     victoire.textContent = scoreVictoire;
     defaite.textContent = scoreDefaite;
+
+    // Va fermer tous les boutons close des modal de la page HTML
+    const closeBtns = document.querySelectorAll('.close');
+    const modals = document.querySelectorAll('.modal');
+    closeBtns.forEach(function(btn) {
+        btn.onclick = function() {
+          modals.forEach(function(modal) {
+            modal.style.display = "none";
+          });
+        }
+      });
+
 
     // Ajoute l'événement pour réinitialiser les scores
     const resetButton = document.getElementById("resetScores");
@@ -39,8 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
         // / Réinitialiser les  scores à zéro
         scoreVictoire = 0;
         scoreDefaite = 0;
-
-
 
         // Mettre à jour l'affichage des scores
         victoire.textContent = 0;
@@ -72,7 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 .map((lettre, index) => (index === 0 ? lettre : "-"))
                 .join("");
 
-            // console.log(motAfficheMasque); // Afficher le mot masqué pour vérifier le résultat
 
             // nbre tentatives = nbre lignes
             const nombreTentatives = 6;
@@ -96,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Affichage de notre tableau tr et td
             for (let u = 0; u < nombreTentatives; u++) {
                 const ligne = document.createElement("tr");
-                // pour chaque lettre du mot, s'il est présent dans Array, tu le mets ligne du dessous ou tu remets un _
+                // pour chaque lettre du mot, s'il est présent dans Array, tu le mets ligne du dessous ou tu remets un -
                 motAfficheMasque.split("").forEach((caractere, index) => {
                     const cellule = document.createElement("td");
                     cellule.textContent = index === 0 ? caractere : "-";
@@ -137,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         cellules[positionLigne].textContent = lettre;
                     }
                     positionLigne++;
-                }
+                } 
             }
 
             // Validation du mot
@@ -206,7 +219,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         });
                     }
-                }
+                    
+                } else {
+                    let modalNotEnd = document.getElementById("myModalNotEnd");
+                    modalNotEnd.style.display = "block";
+                    };
+
+
 
                 // Déterminer alerte si toutes les lettres sont bien placées
                 let rouge = ligne.getElementsByClassName("bien-place");

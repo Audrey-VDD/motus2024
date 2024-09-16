@@ -17,19 +17,11 @@
             <button id="jouer">JOUER</button>
             <button id="resetScores">Réinitialiser les scores</button>
         </div>
-        <div>
-            <h3>Nombre de victoire : <h3 id="scoreVictoire">0</h3>
-            </h3>
-            <h3>Nombre de défaite : <h3 id="scoreDefaite">0</h3>
-            </h3>
-
-        </div>
     </div>
 
-    <div>Victoires : <div spanVictoire></div></div>
 
 
-
+    <!-- Les modals -->
     <div id="myModal" class="modal">
         <div class="modalContent">
             <!-- bouton supprimer de mon modal -->
@@ -37,6 +29,16 @@
             <h3>!! VICTOIRE !!</h3>
         </div>
     </div>
+
+    <div id="myModalNotEnd" class="modal">
+        <div class="modalContent">
+            <!-- bouton supprimer de mon modal -->
+            <span class="close">&times;</span>
+            <h3>-- La ligne n'est pas finie --</h3>
+        </div>
+    </div>
+
+
     <!-- <div id="myModalLoose" class="modal"></div>
     <div class="modalContent">
         bouton supprimer de mon modal
@@ -45,9 +47,25 @@
     </div>
     </div> -->
 
-    <div>
-        <table id="myTable"></table>
+
+    <div id="centerPage">
+
+        <div>
+        </div>
+
+        <div>
+            <table id="myTable"></table>
+        </div>
+
+        <div>
+            <h3>Nombre de victoire : <h3 id="scoreVictoire">0</h3></h3>
+            <h3>Nombre de défaite : <h3 id="scoreDefaite">0</h3></h3>
+            <h3>Moyenne : <h3 id="scoreDefaite">0</h3></h3>
+        </div>
+
     </div>
+
+
 
     <div id="clavier">
         <div class="divClavier">

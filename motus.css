@@ -25,32 +25,13 @@ h1 {
 
 }
 
-#m {
-    border: 1px solid var(--red-color);
-    font-size: 3rem;
-    padding: 0.5vw;
-    background-color: var(--red-color);
-    border-radius: 16px;
+
+#centerPage {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 5vh;
 }
-
-#t {
-    border: 1px solid var(--yellow-color);
-    font-size: 3rem;
-    padding: 0.5vw;
-    background-color: var(--yellow-color);
-    border-radius: 100%;
-
-}
-
-#s {
-    border: 1px solid var(--red-color);
-    font-size: 3rem;
-    padding: 0.5vw;
-    background-color: var(--red-color);
-    border-radius: 16px;
-}
-
-
 
 #clavier {
     display: flex;
@@ -68,14 +49,14 @@ tr {
 
 table {
     border-collapse: collapse;
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
     text-align: center;
 }
 
 #myTable {
-    width: 20vw;
-    height: 30vh;
+    /* width: 20vw;
+    height: 30vh; */
     margin-bottom: 5vh;
 
 }
@@ -257,12 +238,19 @@ td {
     cursor: pointer;
 }
 
-.modalContent>h3 {
+.myModal> div >h3 {
     color: white;
     font-size: 5rem;
     text-align: center;
 }
-
+#myModalNotEnd{
+    background-color: var(--blue-color);
+    border: 2px solid var(--red-color);
+}
+#myModalNotEnd>div>h3 {
+    font-size: 30px;
+    text-align: center;
+}
 #myModalLoose {
     display: none;
     position: fixed;
