@@ -22,34 +22,7 @@ h1 {
     text-transform: uppercase;
     color: white;
     font-size: 3.5rem;
-
 }
-
-#m {
-    border: 1px solid var(--red-color);
-    font-size: 3rem;
-    padding: 0.5vw;
-    background-color: var(--red-color);
-    border-radius: 16px;
-}
-
-#t {
-    border: 1px solid var(--yellow-color);
-    font-size: 3rem;
-    padding: 0.5vw;
-    background-color: var(--yellow-color);
-    border-radius: 100%;
-
-}
-
-#s {
-    border: 1px solid var(--red-color);
-    font-size: 3rem;
-    padding: 0.5vw;
-    background-color: var(--red-color);
-    border-radius: 16px;
-}
-
 
 
 #clavier {
@@ -200,6 +173,10 @@ td {
     width: 3vw;
 }
 
+.caseRemplit {
+    background-color: #257cb2;
+}
+
 .bien-place {
     background-color: var(--red-color);
     color: black;
@@ -263,17 +240,12 @@ td {
     text-align: center;
 }
 
-#myModalLoose {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    width: 60%;
-    height: 50%;
-    margin-top: 5%;
-    background-color: #2486c3;
-    border: 2px solid #F7B735;
-    border-radius: 25px;
+.modal-Content>h3 {
+    color: white;
+    font-size: 3.5rem;
+    text-align: center;
 }
+
 
 
 /* --------------------------media Queries----------------------
