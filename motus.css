@@ -81,7 +81,14 @@ table {
 }
 
 .button {
-    margin: 5px;
+    display: flex;
+}
+
+.button> .letter {
+display: flex;
+justify-content: center;
+height: 3vw;
+width: 2vw;
 }
 
 #clavier {
@@ -91,12 +98,16 @@ table {
     align-items: center;
 }
 
-#clavier>div {
+.divClavier{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0.6vw;
+    gap: 1.5vw;
 
+    
 }
+
 
 .letter {
     margin: 1px;
@@ -133,6 +144,15 @@ button {
 
 }
 
+#btnValider>img:hover {
+    opacity: 1;
+    color: black;
+    cursor: pointer;
+    background-color: green;
+    border-radius: 15px;
+    height: 2.5vw;
+    width: auto;
+}
 
 
 #btnSuppr {
@@ -141,6 +161,19 @@ button {
     box-shadow: none;
 
 }
+
+#btnSuppr>img:hover {
+    opacity: 1;
+    color: black;
+    cursor: pointer;
+    background-color: red;
+    border-radius: 15px;
+    height: 2.5vw;
+    width: auto;
+
+
+}
+
 
 #btnSuppr>img {
     width: 2vw;
