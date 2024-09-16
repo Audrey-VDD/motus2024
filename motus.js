@@ -162,6 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 for (let i = 1; i < cellules.length; i++) { // Commence à 1 pour ne pas changer la premiere lettre
                     const lettre = cellules[i].textContent.toLowerCase();
 
+
                     // pour colorer les lettres du clavier
                     // creation d'une constante pour trouver la lettre dans le clavier avec un querySelector pour une selection ds le css
                     const lettreClavier = document.querySelector(`.letter[data-letter="${lettre}"]`);
@@ -170,6 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (lettre === motSansAccents[i]) {
                         cellules[i].classList.add("bien-place");
                         lettresBienPlacees[i] = lettre;
+
 
                         if (lettreClavier) {
 
