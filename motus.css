@@ -22,20 +22,71 @@ h1 {
     text-transform: uppercase;
     color: white;
     font-size: 3.5rem;
-
+    text-shadow: rgb(5, 5, 126) 1px 2px;
 }
+#m {
+    border: 1px solid var(--red-color);
+    font-size: 3rem;
+    padding: 0.5vw;
+    background-color: var(--red-color);
+    border-radius: 16px;
+}
+
+#t {
+    border: 1px solid var(--yellow-color);
+    font-size: 3rem;
+    padding: 0.5vw;
+    background-color: var(--yellow-color);
+    border-radius: 100%;
+}
+
+#s {
+    border: 1px solid var(--red-color);
+    font-size: 3rem;
+    padding: 0.5vw;
+    background-color: var(--red-color);
+    border-radius: 16px;
+}
+
 
 
 #centerPage {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    align-items: center;
+    width: 100vw;
     margin-top: 5vh;
+    font-size: small;
+    color: white;
 }
 
-#clavier {
-    display: flex;
+#rules>h3 {
+    font-style: italic;
 }
+
+#score>h3 {
+    font-style: italic;
+}
+
+#resetScores {
+    width: 6vw;
+    height: 5vh;
+    border-radius: 15px;
+    font-size: 0.3rem;
+    border: 2px solid white;
+    color: white;
+    text-shadow: rgb(5, 5, 126) 1px 2px;
+    font-size: 1.4rem;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--yellow-color);
+}
+
+#resetScores:hover{
+    font-size: 1.5rem;
+}
+
+
 
 #myTable,
 td,
@@ -49,16 +100,11 @@ tr {
 
 table {
     border-collapse: collapse;
-    /* width: 100%;
-    height: 100%; */
     text-align: center;
 }
 
 #myTable {
-    /* width: 20vw;
-    height: 30vh; */
     margin-bottom: 5vh;
-
 }
 
 .button {
@@ -76,7 +122,6 @@ table {
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .letter {
@@ -98,7 +143,6 @@ button {
     color: white;
     font-size: 1.4rem;
     box-shadow: 2px 2px 0px 2px rgb(3, 3, 102);
-
 }
 
 #btnValider {
@@ -109,65 +153,41 @@ button {
 
 #btnValider>img {
     padding-top: 2vh;
-
     width: 2vw;
-
 }
-
-
 
 #btnSuppr {
     background-color: var(--blue-color);
     border: none;
     box-shadow: none;
-
 }
 
 #btnSuppr>img {
     width: 2vw;
-
     padding-top: 1vh;
-
 }
 
 #boutonJeu {
     display: flex;
     flex-direction: row;
     align-items: center;
-
-
 }
 
 #jouer {
-    margin-right: 10vw;
-    display: flex;
     width: 6vw;
     height: 5.5vh;
     border-radius: 15px;
-    font-size: 0.9rem;
-    background-color: transparent;
     border: 2px solid white;
     color: white;
-    font-size: 1.4rem;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
     background-color: var(--red-color);
+    text-shadow: rgb(5, 5, 126) 1px 2px;
+}
+#jouer:hover{
+    width: 8vw;
+    height: 7.5vh;
+    font-size: 1.9rem;
 }
 
-#resetScores {
-    width: 9vw;
-    height: 8vh;
-    border-radius: 15px;
-    font-size: 0.9rem;
-    background-color: transparent;
-    border: 2px solid white;
-    color: white;
-    font-size: 1.4rem;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--yellow-color);
-}
 
 
 button:hover {
