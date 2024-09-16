@@ -1,5 +1,6 @@
 * {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
 }
 
 :root {
@@ -73,9 +74,10 @@ table {
 }
 
 #myTable {
-    width: 40vw;
-    height: 50vh;
+    width: 20vw;
+    height: 30vh;
     margin-bottom: 5vh;
+
 }
 
 .button {
@@ -91,88 +93,216 @@ table {
 
 #clavier>div {
     display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 
+.letter {
+    margin: 1px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    cursor: pointer;
+    align-items: center;
+}
+
+
 button {
-    width: 4vw;
-    height: 11vh;
+    width: 2vw;
+    height: 5vh;
     border-radius: 15px;
     font-size: 0.9rem;
     background-color: transparent;
     border: 2px solid white;
     color: white;
     font-size: 1.4rem;
+    box-shadow: 2px 2px 0px 2px rgb(3, 3, 102);
+
+}
+
+#btnValider {
+    border: none;
+    box-shadow: none;
+    background-color: var(--blue-color);
+}
+
+#btnValider>img {
+    padding-top: 2vh;
+
+    width: 2vw;
+
+}
+
+
+
+#btnSuppr {
+    background-color: var(--blue-color);
+    border: none;
+    box-shadow: none;
+
+}
+
+#btnSuppr>img {
+    width: 2vw;
+
+    padding-top: 1vh;
+
+}
+
+#boutonJeu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
 
 }
 
 #jouer {
+    margin-right: 10vw;
+    display: flex;
     width: 6vw;
-    height: 11vh;
+    height: 5.5vh;
     border-radius: 15px;
     font-size: 0.9rem;
     background-color: transparent;
     border: 2px solid white;
     color: white;
     font-size: 1.4rem;
-    margin-bottom: 2vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--red-color);
 }
 
+#resetScores {
+    width: 9vw;
+    height: 8vh;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    font-size: 1.4rem;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--yellow-color);
+}
+
+
 button:hover {
-    opacity: 0.4;
+    opacity: 1;
+    color: black;
     cursor: pointer;
+    background-color: #eee;
+}
+
+td {
+    width: 3vw;
 }
 
 .bien-place {
     background-color: var(--red-color);
-    color: white;
-    border-radius: 100%;
+    color: black;
+    /* border-radius: 100%; */
+
+
 }
 
 .mal-place {
     background-color: var(--yellow-color);
     color: black;
-    border-radius: 100%;
+    /* border-radius: 100%; */
+
 }
 
 .incorrect {
     background-color: lightgray;
     color: black;
+    /* border-radius: 100%; */
+
 }
 
-#jouer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-right: 2vw;
-    width: 6vw;
-    height: 11vh;
-    border-radius: 15px;
-    font-size: 1vw;
-    background-color: transparent;
-    border: 2px solid white;
+/* CSS du modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    width: 60%;
+    height: 50%;
+    margin-top: 5%;
+    background-color: #2486c3;
+    border: 2px solid #F7B735;
+    border-radius: 25px;
+}
+
+.modalContent {
+    background-color: #2eaaf7;
+    border: 2px solid #F7B735;
+    border-radius: 25px;
+    margin-top: 5%;
+    height: 70%;
+}
+
+.close {
+    color: var(--yellow-color);
+    float: right;
+    font-size: 40px;
+    font-weight: bold;
+    margin-right: 5%;
+}
+
+.close:hover {
+    color: var(--red-color);
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.modalContent>h3 {
     color: white;
-    font-size: 1.4rem;
-    margin-bottom: 2vw;
-
+    font-size: 5rem;
+    text-align: center;
 }
+
+#myModalLoose {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    width: 60%;
+    height: 50%;
+    margin-top: 5%;
+    background-color: #2486c3;
+    border: 2px solid #F7B735;
+    border-radius: 25px;
+}
+
 
 /* --------------------------media Queries----------------------
 */
 
 @media (max-width : 480px) {
 
+
+
+
     #jouer {
+        padding-left: 20px;
         width: 25vw;
-        padding-left: 5vw;
-        padding-right: 5vw;
-        background-color: #DB3A34;
+        background-color: var(--yellow-color);
+
+
+    }
+
+    #resetScores {
+        width: 35vw;
+
+        padding-right: 1vw;
+        background-color: var(--yellow-color);
 
 
     }
 
     #myTable {
-        width: 75vw;
+        width: 60vw;
     }
 
     button {
@@ -185,23 +315,22 @@ button:hover {
 
     }
 
-
-}
-
-
-@media (min-width : 720px) {
-    #jouer {
-        background-color: var(--yellow-color);
-        padding-left: 1.8vw;
-        padding-top: 0.6vh;
-        width: 15vw;
+    #btnSuppr {
+        margin-right: 3vw;
     }
 
-    button {
-        width: 5.5vw;
-        padding-bottom: 1vh;
-        padding-left: 0.8vw;
+    #btnSuppr>img {
+        width: 8vw;
 
+    }
+
+    #btnValider>img {
+        width: 6vw;
+
+    }
+
+    #btnValider {
+        margin-bottom: 2.5vh;
     }
 
 
