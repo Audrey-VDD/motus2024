@@ -248,6 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     alert("Vous avez perdu le mot à deviner était : " + motSansAccents);
                     location.reload();
 
+
                 }
             });
 
