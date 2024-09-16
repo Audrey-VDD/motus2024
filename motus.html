@@ -17,10 +17,35 @@
             <button id="jouer">JOUER</button>
         </div>
     </div>
+    <div id="scorePhone">
+        <div id="scorePhoneContent">
+            <h3>Victoires <h3 id="scoreVictoire">0</h3></h3>
+            <h3>Défaites <h3 id="scoreDefaite">0</h3></h3>
+            <h3>Moyenne <h3 id="scoreDefaite">0</h3></h3>
+        </div>
+        <button id="resetScoresPhone">Reset</button>   
+    </div>
 
 
 
     <!-- Les modals -->
+    <div id="openModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modalContent">
+            <!-- bouton supprimer de mon modal -->
+
+            <h2>Le célèbre jeu Motus est de retour</h2>
+            <h3>Voici les règles : </h3>
+            
+            <ul>
+                <li>Rouge : la lettre est dans le mot et elle est bien placée</li>
+                <li>Orange : la lettre est dans le mot, mais elle est mal placée</li>
+                <li>Gris : la lettre n'est pas dans le mot</li>
+            </ul>
+        </div>
+    </div>
+
+    
     <div id="myModal" class="modal">
         <div class="modalContent">
             <!-- bouton supprimer de mon modal -->
@@ -168,6 +193,15 @@
             </div>
         </div>
     </div>
+
+
+
+    <div id="rulesPhone">
+        <h3>Rouge = bien placée</h3>
+        <h3>Orange = mal placée</h3>
+        <h3>Gris = pas présente</h3>
+    </div>
+
 </body>
 <script src="./motus.js"></script>
 

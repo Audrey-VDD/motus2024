@@ -96,7 +96,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             // Ouverture de la page, alerte : 
-            alert("Deviner le bon mot. \n \n Rouge = lettre bien placée. \n Orange = lettre présente mais mal placée. \n Gris = lettre non présente dans le mot. \n \n Bonne chance !");
+            let openModal = document.getElementById("openModal");
+            openModal.style.display = "block";
 
 
 

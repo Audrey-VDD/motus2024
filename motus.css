@@ -224,6 +224,12 @@ td {
 }
 
 /* CSS du modal */
+
+#openModal>div>ul>li {
+    list-style: "➥";
+    height: 8vh;
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -241,7 +247,16 @@ td {
     border: 2px solid #F7B735;
     border-radius: 25px;
     margin-top: 5%;
-    height: 70%;
+    color: white;
+}
+.modalContent>h2 {
+    text-align: center;
+    color: white;
+    text-shadow: rgb(5, 5, 126) 1px 2px;
+}
+.modalContent>h3{
+    font-style: italic;
+    margin-left: 3vw;
 }
 
 .close {
@@ -254,7 +269,7 @@ td {
 
 .close:hover {
     color: var(--red-color);
-    font-size: 50px;
+    font-size: 45px;
     cursor: pointer;
 }
 
@@ -282,6 +297,12 @@ td {
     border: 2px solid #F7B735;
     border-radius: 25px;
 }
+#rulesPhone{
+    display: none;
+}
+#scorePhone{
+    display: none;
+}
 
 
 /* --------------------------media Queries----------------------
@@ -293,20 +314,37 @@ td {
 
 
     #jouer {
-        padding-left: 20px;
-        width: 25vw;
-        background-color: var(--yellow-color);
-
-
+        overflow: hidden;
+        width: 90vw !important;
+    }
+    #rules{
+        display: none;
+    }
+    #rulesPhone{
+        display: block;
+        font-style: italic;
+        color: white;
+    }
+    #score{
+        display: none;
+    }
+    #scorePhone{
+        display: block;
+    }
+    #scorePhoneContent{
+        display: flex;
+        color: white;
+        gap: 2%;
+    }
+    #resetScoresPhone{
+        margin-left: 29vw;
+        width: 10vw !important;
+        height: 3vh;
+        font-size: 0.7rem;
     }
 
     #resetScores {
-        width: 35vw;
-
-        padding-right: 1vw;
-        background-color: var(--yellow-color);
-
-
+        width: 20vw;
     }
 
     #myTable {
