@@ -13,18 +13,35 @@
         <h1><span id="m">M</span>o<span id="t">t</span>u<span id="s">s</span></h1>
     </div>
     <div>
-        <button id="jouer">JOUER</button>
+        <div id="boutonJeu">
+            <button id="jouer">JOUER</button>
+            <button id="resetScores">Réinitialiser les scores</button>
+        </div>
+        <div>
+            <h3>Nombre de victoire : <h3 id="scoreVictoire">0</h3>
+            </h3>
+            <h3>Nombre de défaite : <h3 id="scoreDefaite">0</h3>
+            </h3>
+
+        </div>
     </div>
 
 
-    <!-- placement de mon modal -->
+
     <div id="myModal" class="modal">
         <div class="modalContent">
             <!-- bouton supprimer de mon modal -->
             <span class="close">&times;</span>
             <h3>!! VICTOIRE !!</h3>
-          </div>
+        </div>
     </div>
+    <!-- <div id="myModalLoose" class="modal"></div>
+    <div class="modalContent">
+        bouton supprimer de mon modal
+        <span class="close">&times;</span>
+        <h3>!! Défaite!!</h3>
+    </div>
+    </div> -->
 
     <div>
         <table id="myTable"></table>
@@ -33,92 +50,92 @@
     <div id="clavier">
         <div class="divClavier">
             <div class="button">
-                <button class="letter">A</button>
+                <button class="letter" data-letter="a">A</button>
             </div>
             <div class="button">
-                <button class="letter">Z</button>
+                <button class="letter" data-letter="z">Z</button>
             </div>
             <div class="button">
-                <button class="letter">E</button>
+                <button class="letter" data-letter="e">E</button>
             </div>
             <div class="button">
-                <button class="letter">R</button>
+                <button class="letter" data-letter="r">R</button>
             </div>
             <div class="button">
-                <button class="letter">T</button>
+                <button class="letter" data-letter="t">T</button>
             </div>
             <div class="button">
-                <button class="letter">Y</button>
+                <button class="letter" data-letter="y">Y</button>
             </div>
             <div class="button">
-                <button class="letter">U</button>
+                <button class="letter" data-letter="u">U</button>
             </div>
             <div class="button">
-                <button class="letter">I</button>
+                <button class="letter" data-letter="i">I</button>
             </div>
             <div class="button">
-                <button class="letter">O</button>
+                <button class="letter" data-letter="o">O</button>
             </div>
             <div class="button">
-                <button class="letter">P</button>
-            </div>
-        </div>
-        <div class="divClavier">
-            <div class="button">
-                <button class="letter">Q</button>
-            </div>
-            <div class="button">
-                <button class="letter">S</button>
-            </div>
-            <div class="button">
-                <button class="letter">D</button>
-            </div>
-            <div class="button">
-                <button class="letter">F</button>
-            </div>
-            <div class="button">
-                <button class="letter">G</button>
-            </div>
-            <div class="button">
-                <button class="letter">H</button>
-            </div>
-            <div class="button">
-                <button class="letter">J</button>
-            </div>
-            <div class="button">
-                <button class="letter">K</button>
-            </div>
-            <div class="button">
-                <button class="letter">L</button>
-            </div>
-            <div class="button">
-                <button class="letter">M</button>
-            </div>
-            <div class="button">
-                <button class="letter">W</button>
+                <button class="letter" data-letter="p">P</button>
             </div>
         </div>
         <div class="divClavier">
             <div class="button">
-                <button id="btnSuppr">Suppr</button>
+                <button class="letter" data-letter="q">Q</button>
             </div>
             <div class="button">
-                <button class="letter">X</button>
+                <button class="letter" data-letter="s">S</button>
             </div>
             <div class="button">
-                <button class="letter">C</button>
+                <button class="letter" data-letter="d">D</button>
             </div>
             <div class="button">
-                <button class="letter">V</button>
+                <button class="letter" data-letter="f">F</button>
             </div>
             <div class="button">
-                <button class="letter">B</button>
+                <button class="letter" data-letter="g">G</button>
             </div>
             <div class="button">
-                <button class="letter">N</button>
+                <button class="letter" data-letter="h">H</button>
             </div>
             <div class="button">
-                <button id="btnValider">Valider</button>
+                <button class="letter" data-letter="j">J</button>
+            </div>
+            <div class="button">
+                <button class="letter" data-letter="k">K</button>
+            </div>
+            <div class="button">
+                <button class="letter" data-letter="l">L</button>
+            </div>
+            <div class="button">
+                <button class="letter" data-letter="m">M</button>
+            </div>
+            <div class="button">
+                <button class="letter" data-letter="w">W</button>
+            </div>
+        </div>
+        <div class="divClavier">
+            <div class="button">
+                <button id="btnSuppr"><img src="./touche-effacer.png" alt="touche-effacer"></button>
+            </div>
+            <div class="button">
+                <button class="letter" data-letter="x">X</button>
+            </div>
+            <div class="button">
+                <button class="letter" data-letter="c">C</button>
+            </div>
+            <div class="button">
+                <button class="letter" data-letter="v">V</button>
+            </div>
+            <div class="button">
+                <button class="letter" data-letter="b">B</button>
+            </div>
+            <div class="button">
+                <button class="letter" data-letter="n">N</button>
+            </div>
+            <div class="button">
+                <button id="btnValider"> <img src="./touche-enter.png" alt="touche-entrer"></button>
             </div>
         </div>
     </div>
