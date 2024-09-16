@@ -258,6 +258,12 @@ td {
     font-style: italic;
     margin-left: 3vw;
 }
+#myModal> div > h3 {
+    color: var(--yellow-color);
+    text-shadow: rgb(5, 5, 126) 1px 2px;
+    text-align: center;
+    font-size: 3rem;
+}
 
 .close {
     color: var(--yellow-color);
@@ -272,6 +278,10 @@ td {
     font-size: 45px;
     cursor: pointer;
 }
+#myModalNotEnd>span:hover{
+    color: var(--yellow-color);
+}
+
 
 .myModal> div >h3 {
     color: white;
@@ -279,8 +289,8 @@ td {
     text-align: center;
 }
 #myModalNotEnd{
-    background-color: var(--blue-color);
     border: 2px solid var(--red-color);
+    background-color: #DB3A34;
 }
 #myModalNotEnd>div>h3 {
     font-size: 30px;
@@ -377,6 +387,36 @@ td {
 
     #btnValider {
         margin-bottom: 2.5vh;
+    }
+
+    #myModal{
+        width: 90%;
+        margin-top: 40%;
+    }
+    #myModal > div {
+        margin-top: 25%;
+        height: 25vh;
+    }
+    #myModal > div>h3 {
+        font-size: 2.5rem;
+        margin-top: 20%;
+
+    }
+    #myModalNotEnd>div{
+        margin-top: 15%;
+    }
+   
+    #myModalNotEnd>div>h3{
+        margin-top: 10%;  
+    }
+    #myModalNotEnd{
+        width: 90%;
+        height: 33%;
+        margin-top: 40%; 
+        background-color: #DB3A34;
+    }
+    #myModalNotEnd>span:hover{
+        color: var(--yellow-color);
     }
 
 
