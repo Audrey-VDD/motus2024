@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   const tableauMots = [
     "cache",
@@ -79,11 +78,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function buttonEnter() {
     valider.addEventListener("click", () => {
-      if (positionLigne === lignes[choixJoueur].getElementsByTagName("td").length) {
+      if (
+        positionLigne === lignes[choixJoueur].getElementsByTagName("td").length
+      ) {
+
+//     let rouge = lignes[choixJoueur].getElementsByTagName("td");
+// console.log(rouge);
+
+// // console.log(lignes.length, rouge.length);
+
+// if (lettresBienPlacees.length == rouge.length + 1) {
+//   alert("victoire");
+
+
+// }
+
+
+
+
         // Passer à la ligne suivante
         choixJoueur++;
         positionLigne = 1;
-
         if (choixJoueur < nombreTentatives) {
           // Réinitialiser le tableau pour la prochaine ligne avec les lettres bien placées
           lignes[choixJoueur]
@@ -124,6 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const lettre = letter[i].innerText.toLowerCase();
       saisi(lettre);
     });
+
+
   }
 
   // Pour les touches clavier PC
@@ -139,3 +156,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
