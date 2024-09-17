@@ -300,12 +300,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                     }
+                    location.reload();
 
 
                 }
                 essaisJeu++;// Incrémenter le nombre d'essais pour le jeu en cours
 
             });
+
 
 
 
