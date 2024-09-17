@@ -24,7 +24,6 @@ h1 {
     font-size: 3.5rem;
     text-shadow: rgb(5, 5, 126) 1px 2px;
 }
-
 #m {
     border: 1px solid var(--red-color);
     font-size: 3rem;
@@ -47,10 +46,6 @@ h1 {
     padding: 0.5vw;
     background-color: var(--red-color);
     border-radius: 16px;
-}
-
-.caseRemplit {
-    background-color: #1788ce;
 }
 
 
@@ -87,7 +82,7 @@ h1 {
     background-color: var(--yellow-color);
 }
 
-#resetScores:hover {
+#resetScores:hover{
     font-size: 1.5rem;
 }
 
@@ -187,12 +182,12 @@ button {
     background-color: var(--red-color);
     text-shadow: rgb(5, 5, 126) 1px 2px;
 }
-
-#jouer:hover {
+#jouer:hover{
     width: 8vw;
     height: 7.5vh;
     font-size: 1.9rem;
 }
+
 
 
 
@@ -255,16 +250,20 @@ td {
     margin-top: 5%;
     color: white;
 }
-
 .modalContent>h2 {
     text-align: center;
     color: white;
     text-shadow: rgb(5, 5, 126) 1px 2px;
 }
-
-.modalContent>h3 {
+.modalContent>h3{
     font-style: italic;
     margin-left: 3vw;
+}
+#myModal> div > h3 {
+    color: var(--yellow-color);
+    text-shadow: rgb(5, 5, 126) 1px 2px;
+    text-align: center;
+    font-size: 3rem;
 }
 
 .close {
@@ -280,23 +279,24 @@ td {
     font-size: 45px;
     cursor: pointer;
 }
+#myModalNotEnd>span:hover{
+    color: var(--yellow-color);
+}
 
-.myModal>div>h3 {
+
+.myModal> div >h3 {
     color: white;
     font-size: 5rem;
     text-align: center;
 }
-
-#myModalNotEnd {
-    background-color: var(--blue-color);
+#myModalNotEnd{
     border: 2px solid var(--red-color);
+    background-color: #DB3A34;
 }
-
 #myModalNotEnd>div>h3 {
     font-size: 30px;
     text-align: center;
 }
-
 #myModalLoose {
     display: none;
     position: fixed;
@@ -307,6 +307,12 @@ td {
     background-color: #2486c3;
     border: 2px solid #F7B735;
     border-radius: 25px;
+}
+#rulesPhone{
+    display: none;
+}
+#scorePhone{
+    display: none;
 }
 
 #rulesPhone {
@@ -330,32 +336,26 @@ td {
         overflow: hidden;
         width: 90vw !important;
     }
-
-    #rules {
+    #rules{
         display: none;
     }
-
-    #rulesPhone {
+    #rulesPhone{
         display: block;
         font-style: italic;
         color: white;
     }
-
-    #score {
+    #score{
         display: none;
     }
-
-    #scorePhone {
+    #scorePhone{
         display: block;
     }
-
-    #scorePhoneContent {
+    #scorePhoneContent{
         display: flex;
         color: white;
         gap: 2%;
     }
-
-    #resetScoresPhone {
+    #resetScoresPhone{
         margin-left: 29vw;
         width: 10vw !important;
         height: 3vh;
@@ -396,6 +396,36 @@ td {
 
     #btnValider {
         margin-bottom: 2.5vh;
+    }
+
+    #myModal{
+        width: 90%;
+        margin-top: 40%;
+    }
+    #myModal > div {
+        margin-top: 25%;
+        height: 25vh;
+    }
+    #myModal > div>h3 {
+        font-size: 2.5rem;
+        margin-top: 20%;
+
+    }
+    #myModalNotEnd>div{
+        margin-top: 15%;
+    }
+   
+    #myModalNotEnd>div>h3{
+        margin-top: 10%;  
+    }
+    #myModalNotEnd{
+        width: 90%;
+        height: 33%;
+        margin-top: 40%; 
+        background-color: #DB3A34;
+    }
+    #myModalNotEnd>span:hover{
+        color: var(--yellow-color);
     }
 
 

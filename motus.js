@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+
+
+
     // Pour garder les scores aux raffraichissement de pages
     let scoreVictoire = parseInt(localStorage.getItem('victoire')) || 0;
     let scoreDefaite = parseInt(localStorage.getItem('defaite')) || 0;
@@ -11,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let victoire = document.getElementById("scoreVictoire");
     let defaite = document.getElementById("scoreDefaite");
     let moyenne = document.getElementById("scoreMoyenne");
+
 
     // Mettre à jour l'affichage des scores
     victoire.textContent = scoreVictoire;
@@ -65,8 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
         totalEssais = 0;
         totalMotsTrouves = 0;
 
-
-
         // Mettre à jour l'affichage des scores
         victoire.textContent = 0;
         defaite.textContent = 0;
@@ -98,7 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 .map((lettre, index) => (index === 0 ? lettre : "-"))
                 .join("");
 
-            // console.log(motAfficheMasque); // Afficher le mot masqué pour vérifier le résultat
 
             // nbre tentatives = nbre lignes
             const nombreTentatives = 6;
@@ -118,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Affichage de notre tableau tr et td
             for (let u = 0; u < nombreTentatives; u++) {
                 const ligne = document.createElement("tr");
-                // pour chaque lettre du mot, s'il est présent dans Array, tu le mets ligne du dessous ou tu remets un _
+                // pour chaque lettre du mot, s'il est présent dans Array, tu le mets ligne du dessous ou tu remets un -
                 motAfficheMasque.split("").forEach((caractere, index) => {
                     const cellule = document.createElement("td");
                     cellule.textContent = index === 0 ? caractere : "-";
@@ -161,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         cellules[positionLigne].classList.add("caseRemplit");
                     }
                     positionLigne++;
-                }
+                } 
             }
 
             // Validation du mot
