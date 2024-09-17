@@ -37,11 +37,15 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.onclick = function () {
             modals.forEach(function (modal) {
                 modal.style.display = "none";
-                location.reload()
+
+
             });
 
         }
     });
+    // Ouverture de la page, alerte : 
+    let openModal = document.getElementById("openModal");
+    openModal.style.display = "block";
 
     // Ajoute l'événement pour réinitialiser les scores
     const resetButton = document.getElementById("resetScores");
@@ -72,6 +76,9 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Les scores seront remis à zéro !");
     });
 
+
+
+
     // Utilisation de l'API pour obtenir un mot aléatoire de minimu 5 lettres et max 8 lettres
     fetch("https://trouve-mot.fr/api/sizemin/5/8")
         .then((response) => response.json())
@@ -101,8 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-            // Ouverture de la page, alerte : 
-            alert("Deviner le bon mot. \n \n Rouge = lettre bien placée. \n Orange = lettre présente mais mal placée. \n Gris = lettre non présente dans le mot. \n \n Bonne chance !");
+
 
             // Création d'un second tableau
             const lignes = [];
@@ -125,13 +131,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 jouer.addEventListener("click", () => {
                     tableau.appendChild(ligne);
 
+
                 });
 
                 // Tu affiches la ligne array dans la ligne du tableau
                 lignes.push(ligne);
-
-
-
 
             }
 
@@ -177,7 +181,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
                 if (ligneComplete === false) {
-                    alert("Veuillez remplir toutes les cases avant de valider.");
+                    // Le modal pour annoncer une défaite
+                    let modalIncomplet = document.getElementById("myModalNotEnd");
+                    modalIncomplet.style.display = "block";
+
 
                 }
 
@@ -266,6 +273,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         // Le modal pour annoncer une victoire
                         let modal = document.getElementById("myModal");
                         modal.style.display = "block";
+                        location.reload();
 
                     } else if (choixJoueur === nombreTentatives - 0) { // Si le joueur a atteint le nombre maximum de tentatives
 
@@ -282,10 +290,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         mettreAJourMoyenne();
 
-
-
-
-
                         // Le modal pour annoncer une défaite
                         let modalDefaite = document.getElementById("myModalDefaite");
 
@@ -296,9 +300,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                     }
+
+
                 }
-                essaisJeu++;     // Incrémenter le nombre d'essais pour le jeu en cours
+                essaisJeu++;// Incrémenter le nombre d'essais pour le jeu en cours
+
             });
+
+
 
             // fonction pour supprimer la dernière lettre saisie
             function supprimerDerniereLettre() {
