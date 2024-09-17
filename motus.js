@@ -20,19 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
     victoire.textContent = scoreVictoire;
     defaite.textContent = scoreDefaite;
 
-<<<<<<< HEAD
-    // Va fermer tous les boutons close des modal de la page HTML
-    const closeBtns = document.querySelectorAll('.close');
-    const modals = document.querySelectorAll('.modal');
-    closeBtns.forEach(function(btn) {
-        btn.onclick = function() {
-          modals.forEach(function(modal) {
-            modal.style.display = "none";
-          });
-        }
-      });
-
-=======
 
     // Fonction pour mettre à jour la moyenne des essais
     function mettreAJourMoyenne() {
@@ -63,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Ouverture de la page, alerte : 
     let openModal = document.getElementById("openModal");
     openModal.style.display = "block";
->>>>>>> deecf4f8fe2ff56435e18720cd02763d96bef24f
 
     // Ajoute l'événement pour réinitialiser les scores
     const resetButton = document.getElementById("resetScores");
@@ -123,14 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-<<<<<<< HEAD
-            // Ouverture de la page, alerte : 
-            let openModal = document.getElementById("openModal");
-            openModal.style.display = "block";
-
-
-=======
->>>>>>> deecf4f8fe2ff56435e18720cd02763d96bef24f
 
 
             // Création d'un second tableau
@@ -192,54 +170,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 const ligne = lignes[choixJoueur];
                 const cellules = ligne.getElementsByTagName("td");
 
-<<<<<<< HEAD
-                // Vérifier chaque lettre
-                for (let i = 1; i < cellules.length; i++) { // Commence à 1 pour ne pas changer la premiere lettre
-                    const lettre = cellules[i].textContent.toLowerCase();
-
-
-                    // pour colorer les lettres du clavier
-                    // creation d'une constante pour trouver la lettre dans le clavier avec un querySelector pour une selection ds le css
-                    const lettreClavier = document.querySelector(`.letter[data-letter="${lettre}"]`);
-
-                    // Vérifier si la lettre est bien placée et la colore au clic seulement
-                    if (lettre === motSansAccents[i]) {
-                        cellules[i].classList.add("bien-place");
-                        lettresBienPlacees[i] = lettre;
-
-
-                        if (lettreClavier) {
-
-                            // Pour colorer le clavier en rouge
-                            lettreClavier.classList.remove("mal-place", "incorrect");
-                            lettreClavier.classList.add("bien-place")
-
-
-                        }
-                    } else if (motCherche.includes(lettre)) {
-                        cellules[i].classList.add("mal-place");
-
-
-                        // Pour colorer le clavier en Jaune
-                        if (lettreClavier) {
-                            lettreClavier.classList.remove("bien-place", "incorrect");
-                            lettreClavier.classList.add("mal-place");
-
-
-                        }
-
-
-                    } else {
-                        cellules[i].classList.add("incorrect");
-
-                        // Pour colorer le clavier en gris
-                        if (lettreClavier) {
-                            lettreClavier.classList.remove("bien-place", "mal-place");
-                            lettreClavier.classList.add("incorrect");
-                        }
-
-=======
->>>>>>> deecf4f8fe2ff56435e18720cd02763d96bef24f
 
                 // Vérifier si la ligne est complète
                 let ligneComplete = true;
@@ -251,60 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 }
 
-<<<<<<< HEAD
-                // Passer à la ligne suivante
-                if (positionLigne === cellules.length) {
-
-                    choixJoueur++;
-                    positionLigne = 1;
-                    if (choixJoueur < nombreTentatives) {
-                        // Réinitialiser la ligne suivante avec les lettres bien placées
-                        lignes[choixJoueur].querySelectorAll("td").forEach((cellule, index) => {
-                            cellule.textContent = lettresBienPlacees[index] || (index === 0 ? motSansAccents[index] : "-");
-
-
-                        });
-                    }
-                    
-                } else {
-                    let modalNotEnd = document.getElementById("myModalNotEnd");
-                    modalNotEnd.style.display = "block";
-                    };
-
-
-
-                // Déterminer alerte si toutes les lettres sont bien placées
-                let rouge = ligne.getElementsByClassName("bien-place");
-                if ((rouge.length + 1) === motSansAccents.length) {
-
-                    //  Compteur victoire et garder en memoire
-                    scoreVictoire++;
-                    localStorage.setItem('victoire', scoreVictoire);
-                    victoire.textContent = scoreVictoire;
-
-                    // Le modal pour annoncer une victoire
-                    let modal = document.getElementById("myModal");
-                    let span = document.getElementsByClassName("close")[0];
-                    modal.style.display = "block";
-                    span.addEventListener('click', () => {
-                        modal.style.display = "none";
-
-                        location.reload(); // Recharger la page pour recommencer
-                    });
-                } else if (choixJoueur === nombreTentatives - 0) { // Si le joueur a atteint le nombre maximum de tentatives
-
-                    //Compteur Defaite et garder en memoire
-
-                    scoreDefaite++;
-                    localStorage.setItem('defaite', scoreDefaite);
-                    defaite.textContent = scoreDefaite;
-
-
-
-
-=======
                 if (ligneComplete === false) {
->>>>>>> deecf4f8fe2ff56435e18720cd02763d96bef24f
                     // Le modal pour annoncer une défaite
                     let modalIncomplet = document.getElementById("myModalNotEnd");
                     modalIncomplet.style.display = "block";
