@@ -13,19 +13,40 @@
         <h1><span id="m">M</span>o<span id="t">t</span>u<span id="s">s</span></h1>
     </div>
     <div>
-        <div id="boutonJeu">
-            <button id="jouer">JOUER</button>
-            <button id="resetScores">Réinitialiser les scores</button>
-        </div>
         <div>
-            <h3>Nombre de victoire : <h3 id="scoreVictoire">0</h3>
-            </h3>
-            <h3>Nombre de défaite : <h3 id="scoreDefaite">0</h3>
-            </h3>
-
+            <button id="jouer">JOUER</button>
         </div>
     </div>
+    <div id="scorePhone">
+        <div id="scorePhoneContent">
+            <h3>Victoires <h3 id="scoreVictoire">0</h3>
+            </h3>
+            <h3>Défaites <h3 id="scoreDefaite">0</h3>
+            </h3>
+            <h3>Moyenne <h3 id="scoreDefaite">0</h3>
+            </h3>
+        </div>
+        <button id="resetScoresPhone">Reset</button>
+    </div>
 
+
+
+    <!-- Les modals -->
+    <div id="openModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modalContent">
+            <!-- bouton supprimer de mon modal -->
+
+            <h2>Le célèbre jeu Motus est de retour</h2>
+            <h3>Voici les règles : </h3>
+
+            <ul>
+                <li>Rouge : la lettre est dans le mot et elle est bien placée</li>
+                <li>Orange : la lettre est dans le mot, mais elle est mal placée</li>
+                <li>Gris : la lettre n'est pas dans le mot</li>
+            </ul>
+        </div>
+    </div>
 
 
     <div id="myModal" class="modal">
@@ -35,17 +56,51 @@
             <h3>!! VICTOIRE !!</h3>
         </div>
     </div>
-    <!-- <div id="myModalLoose" class="modal"></div>
-    <div class="modalContent">
-        bouton supprimer de mon modal
-        <span class="close">&times;</span>
-        <h3>!! Défaite!!</h3>
-    </div>
-    </div> -->
 
-    <div>
-        <table id="myTable"></table>
+    <div id="myModalNotEnd" class="modal">
+        <div class="modalContent">
+            <span class="close">&times;</span>
+            <h3>-- La ligne n'est pas finie --</h3>
+        </div>
     </div>
+    <div id="myModalDefaite" class="modal">
+        <div class="modal-Content">
+            <span class="close">&times;</span>
+            <h3>Dommage, vous avez perdu ! Le mot à deviner était : <span id="motPerdu"></span></h3>
+        </div>
+    </div>
+
+
+
+    <div id="centerPage">
+
+        <div></div>
+
+        <div id="rules">
+            <h3>Rouge = bien placée</h3>
+            <h3>Orange = mal placée</h3>
+            <h3>Gris = pas présente</h3>
+        </div>
+
+        <div>
+            <table id="myTable"></table>
+        </div>
+
+        <div id="score">
+            <h3>Nombre de victoire : <h3 id="scoreVictoire">0</h3>
+            </h3>
+            <h3>Nombre de défaite : <h3 id="scoreDefaite">0</h3>
+            </h3>
+            <h3>Moyenne : <h3 id="scoreMoyenne">0</h3>
+            </h3>
+            <button id="resetScores">Reset</button>
+        </div>
+
+        <div></div>
+
+    </div>
+
+
 
     <div id="clavier">
         <div class="divClavier">
@@ -139,6 +194,15 @@
             </div>
         </div>
     </div>
+
+
+
+    <div id="rulesPhone">
+        <h3>Rouge = bien placée</h3>
+        <h3>Orange = mal placée</h3>
+        <h3>Gris = pas présente</h3>
+    </div>
+
 </body>
 <script src="./motus.js"></script>
 
