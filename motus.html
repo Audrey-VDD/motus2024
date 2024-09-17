@@ -46,6 +46,23 @@
                 <li>Gris : la lettre n'est pas dans le mot</li>
             </ul>
         </div>
+        <button id="resetScoresPhone">Reset</button>
+    </div>
+
+
+    <div id="myModal" class="modal">
+        <div class="modalContent">
+            <!-- bouton supprimer de mon modal -->
+
+            <h2>Le célèbre jeu Motus est de retour</h2>
+            <h3>Voici les règles : </h3>
+
+            <ul>
+                <li>Rouge : la lettre est dans le mot et elle est bien placée</li>
+                <li>Orange : la lettre est dans le mot, mais elle est mal placée</li>
+                <li>Gris : la lettre n'est pas dans le mot</li>
+            </ul>
+        </div>
     </div>
 
 
@@ -57,23 +74,18 @@
     </div>
 
     <div id="myModalNotEnd" class="modal">
-        <!-- bouton supprimer de mon modal -->
-        <span class="close">&times;</span>
         <div class="modalContent">
-            <h3>-- La ligne n'est pas remplie --</h3>
+            <span class="close">&times;</span>
+            <h3>-- La ligne n'est pas finie --</h3>
+        </div>
+    </div>
+    <div id="myModalDefaite" class="modal">
+        <div class="modal-Content">
+            <span class="close">&times;</span>
+            <h3>Dommage, vous avez perdu ! Le mot à deviner était : <span id="motPerdu"></span></h3>
         </div>
     </div>
 
-
-
-
-    <!-- <div id="myModalLoose" class="modal"></div>
-    <div class="modalContent">
-        bouton supprimer de mon modal
-        <span class="close">&times;</span>
-        <h3>!! Défaite!!</h3>
-    </div>
-    </div> -->
 
 
     <div id="centerPage">
@@ -95,7 +107,7 @@
             </h3>
             <h3>Nombre de défaite : <h3 id="scoreDefaite">0</h3>
             </h3>
-            <h3>Moyenne : <h3 id="scoreDefaite">0</h3>
+            <h3>Moyenne : <h3 id="scoreMoyenne">0</h3>
             </h3>
             <button id="resetScores">Reset</button>
         </div>

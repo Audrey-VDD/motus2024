@@ -48,6 +48,7 @@ h1 {
     border-radius: 16px;
 }
 
+<<<<<<< HEAD
 
 
 #centerPage {
@@ -60,6 +61,24 @@ h1 {
     color: white;
 }
 
+=======
+.caseRemplit {
+    background-color: #1788ce;
+}
+
+
+
+#centerPage {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    margin-top: 5vh;
+    font-size: small;
+    color: white;
+}
+
+>>>>>>> deecf4f8fe2ff56435e18720cd02763d96bef24f
 #rules>h3 {
     font-style: italic;
 }
@@ -82,7 +101,11 @@ h1 {
     background-color: var(--yellow-color);
 }
 
+<<<<<<< HEAD
 #resetScores:hover{
+=======
+#resetScores:hover {
+>>>>>>> deecf4f8fe2ff56435e18720cd02763d96bef24f
     font-size: 1.5rem;
 }
 
@@ -181,12 +204,23 @@ button {
     color: white;
     background-color: var(--red-color);
     text-shadow: rgb(5, 5, 126) 1px 2px;
+<<<<<<< HEAD
 }
 #jouer:hover{
     width: 8vw;
     height: 7.5vh;
     font-size: 1.9rem;
 }
+
+=======
+}
+
+#jouer:hover {
+    width: 8vw;
+    height: 7.5vh;
+    font-size: 1.9rem;
+}
+>>>>>>> deecf4f8fe2ff56435e18720cd02763d96bef24f
 
 
 
@@ -249,11 +283,16 @@ td {
     margin-top: 5%;
     color: white;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> deecf4f8fe2ff56435e18720cd02763d96bef24f
 .modalContent>h2 {
     text-align: center;
     color: white;
     text-shadow: rgb(5, 5, 126) 1px 2px;
 }
+<<<<<<< HEAD
 .modalContent>h3{
     font-style: italic;
     margin-left: 3vw;
@@ -263,6 +302,12 @@ td {
     text-shadow: rgb(5, 5, 126) 1px 2px;
     text-align: center;
     font-size: 3rem;
+=======
+
+.modalContent>h3 {
+    font-style: italic;
+    margin-left: 3vw;
+>>>>>>> deecf4f8fe2ff56435e18720cd02763d96bef24f
 }
 
 .close {
@@ -282,20 +327,37 @@ td {
     color: var(--yellow-color);
 }
 
+<<<<<<< HEAD
 
 .myModal> div >h3 {
+=======
+.myModal>div>h3 {
+>>>>>>> deecf4f8fe2ff56435e18720cd02763d96bef24f
     color: white;
     font-size: 5rem;
     text-align: center;
 }
+<<<<<<< HEAD
 #myModalNotEnd{
     border: 2px solid var(--red-color);
     background-color: #DB3A34;
 }
+=======
+
+#myModalNotEnd {
+    background-color: var(--blue-color);
+    border: 2px solid var(--red-color);
+}
+
+>>>>>>> deecf4f8fe2ff56435e18720cd02763d96bef24f
 #myModalNotEnd>div>h3 {
     font-size: 30px;
     text-align: center;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> deecf4f8fe2ff56435e18720cd02763d96bef24f
 #myModalLoose {
     display: none;
     position: fixed;
@@ -314,6 +376,14 @@ td {
     display: none;
 }
 
+#rulesPhone {
+    display: none;
+}
+
+#scorePhone {
+    display: none;
+}
+
 
 /* --------------------------media Queries----------------------
 */
@@ -327,14 +397,24 @@ td {
         overflow: hidden;
         width: 90vw !important;
     }
+<<<<<<< HEAD
     #rules{
         display: none;
     }
     #rulesPhone{
+=======
+
+    #rules {
+        display: none;
+    }
+
+    #rulesPhone {
+>>>>>>> deecf4f8fe2ff56435e18720cd02763d96bef24f
         display: block;
         font-style: italic;
         color: white;
     }
+<<<<<<< HEAD
     #score{
         display: none;
     }
@@ -342,11 +422,28 @@ td {
         display: block;
     }
     #scorePhoneContent{
+=======
+
+    #score {
+        display: none;
+    }
+
+    #scorePhone {
+        display: block;
+    }
+
+    #scorePhoneContent {
+>>>>>>> deecf4f8fe2ff56435e18720cd02763d96bef24f
         display: flex;
         color: white;
         gap: 2%;
     }
+<<<<<<< HEAD
     #resetScoresPhone{
+=======
+
+    #resetScoresPhone {
+>>>>>>> deecf4f8fe2ff56435e18720cd02763d96bef24f
         margin-left: 29vw;
         width: 10vw !important;
         height: 3vh;
